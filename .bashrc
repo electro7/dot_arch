@@ -3,7 +3,7 @@
 # Fichero de opciones del shell bash
 #
 # Vicente Gimeno Morales - Electro7
-# 02 nov 2018 
+# 02 nov 2018
 # Versión para archlinux
 #======================================================================#
 
@@ -31,7 +31,7 @@ COL="$COLC"						# Usuario normal
 function __promptadd
 {
 	XTITLE='\[\e]0;\s (\w)\a\]'
-    PS1="$XTITLE$PS1\n$COL \\$ $COLN"
+	PS1="$XTITLE$PS1\n$COL \\$ $COLN"
 }
 
 # Prompt a traves de promptline.vim
@@ -48,23 +48,23 @@ function prompt_term
 {
 	# Opciones para el git
 	source /usr/share/git/completion/git-prompt.sh
-    GIT_PS1_SHOWDIRTYSTATE=1
+	GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWSTASHSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
     GIT_PS1_SHOWUPSTREAM="auto"
 
     # Prompt final
 	PROMPT_COMMAND=""
-    PS1="$COLV--[$COLC\h$COLV]-[$COLA\w$COLV]\$(__git_ps1)\n$COL \\$ $COLN"
+	PS1="$COLV--[$COLC\h$COLV]-[$COLA\w$COLV]\$(__git_ps1)\n$COL \\$ $COLN"
 }
 
 # Selección de prompt según el tipo de terminal
 case "$COLORTERM" in
   rxvt*)
-	  prompt_line
+	prompt_line
     ;;
   *)
-	  prompt_term
+	prompt_term
     ;;
 esac
 
@@ -74,7 +74,7 @@ esac
 #----------------------------------------------------------------------#
 
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 	export LS_OPTIONS='--color=auto'
 	alias l='ls $LS_OPTIONS'
 	alias ll='ls $LS_OPTIONS -l -N -F'
@@ -114,10 +114,10 @@ alias texclean='rm -f *.toc *.aux *.log *.cp *.fn *.tp *.vr *.pg *.ky'
 alias clean='echo -n "¿Desea borrar todos los ficheros temporales (s/N)? ";
 	read si;
 	if test "$si" = "y" -o "$si" = "s" ; then
-    rm -f \#* *~ .*~ *.bak .*.bak  *.tmp .*.tmp core a.out;
-    echo "Hecho.";
+	rm -f \#* *~ .*~ *.bak .*.bak  *.tmp .*.tmp core a.out;
+	echo "Hecho.";
 	else
-    echo "Cancelado.";
+	echo "Cancelado.";
 	fi'
 
 # Alias del shell
@@ -130,6 +130,7 @@ alias psl='ps -aux | less'
 alias ..='cd ..'
 alias 'cd..'='cd ..'
 alias df="df -h"
+alias more='less'
 
 # Alias para el su (root)
 alias reboot="sudo /sbin/reboot"

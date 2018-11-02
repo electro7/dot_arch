@@ -53,7 +53,7 @@ exec /usr/lib/notification-daemon/notification-daemon &
 # Paquete xinput
 # "xinput list" -> muestra los dispositivos
 # Cambia el Wheel Left (6) por el Middle click (2)
-xinput set-button-map 10 1 2 3 4 5 2 7 8 9
+#xinput set-button-map 10 1 2 3 4 5 2 7 8 9
 
 # Gestor de ventanas
 exec i3

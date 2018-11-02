@@ -283,7 +283,7 @@ noremap <F10> :NERDTreeFind<CR>
 
 " Time
 iab _datetime <C-R>=strftime("%a %b %d %T %Z %Y")<CR>
-iab _time <C-R>=strftime("%H:%M")<CR>
+ab _time <C-R>=strftime("%H:%M")<CR>
 iab _date <C-R>=strftime("%d %b %Y")<CR>
 
 " Personal
@@ -304,8 +304,7 @@ iab _home ~/
 let g:airline_inactive_collapse = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
-if has("gui_win32") || &term == "xterm"
-"if &term == "xterm"
+if !has('gui_running') || &term == "xterm"
 	let g:airline_powerline_fonts = 0
 	let g:airline_symbols = {}
 	let g:airline_left_sep = ''

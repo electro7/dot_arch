@@ -68,7 +68,6 @@ tmp/*
 !.weechat/perl/
 !.weechat/script/
 .Xauthority
-.xinitrc
 .xscreensaver
 .xsel.log
 .xsession-*
