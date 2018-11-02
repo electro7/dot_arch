@@ -3,7 +3,8 @@
 # Fichero de opciones del shell bash
 #
 # Vicente Gimeno Morales - Electro7
-# 04 ene 2015
+# 02 nov 2018 
+# Versión para archlinux
 #======================================================================#
 
 # If not running interactively, don't do anything
@@ -46,6 +47,7 @@ function prompt_line
 function prompt_term
 {
 	# Opciones para el git
+	source /usr/share/git/completion/git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWSTASHSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -120,7 +122,8 @@ alias clean='echo -n "¿Desea borrar todos los ficheros temporales (s/N)? ";
 
 # Alias del shell
 alias h='history'
-alias v='vi'
+alias v='vim'
+alias vi='vim'
 alias gv='gvim'
 alias j="jobs -l"
 alias psl='ps -aux | less'

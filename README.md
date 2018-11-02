@@ -54,3 +54,4 @@ Config files and help [here](https://github.com/electro7/dotfiles/tree/master/.i
 
 * Restart lightdm.    
 
+#dot_atch
