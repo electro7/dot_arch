@@ -2,11 +2,17 @@
 # i3 panel config. Powerline style.
 
 panel_fifo="/tmp/i3_lemonbar_${USER}"
-geometry="x14"
-font="-xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1"
+geometry="x16"
+font="-xos4-terminesspowerline-medium-r-normal--14-140-72-72-c-80-iso10646-1"
 iconfont="-xos4-terminusicons2mono-medium-r-normal--12-120-72-72-m-60-iso8859-1"
 res_w=$(xrandr | grep "current" | awk '{print $8a}')
 snd_cha=$(amixer get Master | grep "Playback channels:" | awk '{if ($4 == "") {printf "%s: Playback", $3} else {printf "%s %s: Playback", $3, $4}}')
+
+# Units
+unit_vol=1							# volume section
+unit_mpd=0							# mpd section
+unit_mail=0							# mail section
+unit_irc=0							# weechat section
 
 # Alarm settings
 cpu_alert=75                        # % cpu use

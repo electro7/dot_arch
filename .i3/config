@@ -56,7 +56,7 @@ floating_modifier $mod
 # Terminal (mod+Enter)
 bindcode $mod+36 exec urxvt
 # GTK Theme sector (mod+winkey+a)
-bindcode $mod+Mod1+38 exec lxappearance 
+bindcode $mod+Mod1+38 exec lxappearance
 # Color picker (mod+winkey+g)
 bindcode $mod+Mod1+42 exec gcolor2
 # htop (mod+winkey+h)
@@ -64,7 +64,7 @@ bindcode $mod+Mod1+43 exec ~/.i3/i3_focus_or_run.sh -t htop ~/bin/terminal htop
 # weechat (mod+winkey+i)
 bindcode $mod+Mod1+31 exec ~/.i3/i3_focus_or_run.sh -t weechat ~/bin/terminal weechat
 # iceweasel (mod+winkey+m)
-bindcode $mod+Mod1+58 exec ~/.i3/i3_focus_or_run.sh -c iceweasel iceweasel
+bindcode $mod+Mod1+58 exec ~/.i3/i3_focus_or_run.sh -c firefox firefox
 # virtualbox (mod+winkey+v)
 bindcode $mod+Mod1+55 exec ~/.i3/i3_focus_or_run.sh -c VirtualBox VirtualBox
 # mldonky (mod+winkey+t)
@@ -83,7 +83,7 @@ bindcode $mod+53 exec dmenu_run -fn "$ft" -nb "$back" -nf "$white" -sb "$yellow"
 #bindcode XF86AudioNext exec ncmpcpp next
 
 #assign application to workspace
-assign [class="Iceweasel"] 2:www
+assign [class="(i)Firefox"] 2:www
 assign [class="(i)VirtualBox"] 3:vbox
 assign [instance="(?i)TeamViewer.exe"] 4:vnc
 #assign [class="Firefox"] → 2

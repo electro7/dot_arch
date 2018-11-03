@@ -39,17 +39,17 @@ URxvt.colorUL: #81A2BE
 ! Uso el Inconsolata normal, con resguardo de terminespowerline y asi
 ! funcionan. :)
 
-URxvt.letterSpace: -2
-URxvt.font: xft:Inconsolata:size=10:hintstyle=hintfull, -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
-URxvt.boldFont: xft:Inconsolata:size=10:hintstyle=hintfull, -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
-URxvt.italicFont: xft:Inconsolata:size=10:hintstyle=hintfull, -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
-URxvt.boldItalicFont: xft:Inconsolata:size=10:hintstyle=hintfull, -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
+!URxvt.letterSpace: -2
+!URxvt.font: xft:Inconsolata:size=12:hintstyle=hintfull, -xos4-terminesspowerline-medium-r-normal--14-140-72-72-c-80-iso10646-1
+!URxvt.boldFont: xft:Inconsolata:size=12:hintstyle=hintfull, -xos4-terminesspowerline-medium-r-normal--14-140-72-72-c-80-iso10646-1
+!URxvt.italicFont: xft:Inconsolata:size=12:hintstyle=hintfull, -xos4-terminesspowerline-medium-r-normal--14-140-72-72-c-80-iso10646-1
+!URxvt.boldItalicFont: xft:Inconsolata:size=12:hintstyle=hintfull, -xos4-terminesspowerline-medium-r-normal--14-140-72-72-c-80-iso10646-1
 
-!URxvt.letterSpace: -1
-!URxvt*font: xft:inconsolata for Powerline:size=10
-!URxvt*boldFont: xft:inconsolata for Powerline:size=10
-!URxvt*italicFont: xft:inconsolata for Powerline:size=10
-!URxvt*bolditalicFont: xft:inconsolata for Powerline:size=10
+URxvt.letterSpace: -1
+URxvt*font: xft:inconsolata for Powerline:size=12
+URxvt*boldFont: xft:inconsolata for Powerline:size=12
+URxvt*italicFont: xft:inconsolata for Powerline:size=12
+URxvt*bolditalicFont: xft:inconsolata for Powerline:size=12
 
 !URxvt*font: xft:terminus:hinting=true:pixelsize=12:antialias=false, -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
 !URxvt*boldFont: xft:terminus:style=bold:hinting=true:pixelsize=12:antialias=false, -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1

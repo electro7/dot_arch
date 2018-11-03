@@ -304,7 +304,7 @@ iab _home ~/
 let g:airline_inactive_collapse = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
-if !has('gui_running') || &term == "xterm"
+if has("win32") || &term != "rxvt-unicode-256color"
 	let g:airline_powerline_fonts = 0
 	let g:airline_symbols = {}
 	let g:airline_left_sep = ''

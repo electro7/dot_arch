@@ -40,7 +40,7 @@ function __promptadd
 function prompt_line
 {
     source ~/.shell_prompt.sh
-    PROMPT_COMMAND="$PROMPT_COMMAND __promptadd;"
+    PROMPT_COMMAND="$PROMPT_COMMAND; __promptadd;"
 }
 
 # Prompt "normal" sin carácteres raros

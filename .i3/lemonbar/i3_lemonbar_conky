@@ -1,7 +1,6 @@
-# Conky for external bar 
-# out simple text to console
+# Conky for external bar - out simple text to console
 
-background no
+background false
 update_interval 2
 total_run_times 0
 override_utf8_locale yes
