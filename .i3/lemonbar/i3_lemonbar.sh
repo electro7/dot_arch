@@ -36,33 +36,43 @@ conky -c $(dirname $0)/i3_lemonbar_conky > "${panel_fifo}" &
 cnt_vol=${upd_vol}
 cnt_mail=${upd_mail}
 cnt_mpd=${upd_mpd}
+cnt_bat=${upd_bat}
 
 while :; do
 
-		# Volume, "VOL"
-		if [ ${unit_vol} -eq 1 ]; then
-				if [ $((cnt_vol++)) -ge ${upd_vol} ]; then
-						amixer get Master | grep "${snd_cha}" | awk -F'[]%[]' '/%/ {if ($7 == "off") {print "VOL×\n"} else {printf "VOL%d%%\n", $2}}' > "${panel_fifo}" &
-						cnt_vol=0
-				fi
-		fi
+	# Volume, "VOL"
+	if [ ${unit_vol} -eq 1 ]; then
+		if [ $((cnt_vol++)) -ge ${upd_vol} ]; then
+			amixer get Master | grep "${snd_cha}" | awk -F'[]%[]' '/%/ {if ($7 == "off") {print "VOL×\n"} else {printf "VOL%d%%\n", $2}}' > "${panel_fifo}" &
+			cnt_vol=0
+			fi
+	fi
 
-		# GMAIL, "GMA"
-		if [ ${unit_mail} -eq 1 ]; then
-				if [ $((cnt_mail++)) -ge ${upd_mail} ]; then
-						printf "%s%s\n" "GMA" "$(~/bin/gmail.sh)" > "${panel_fifo}"
-						cnt_mail=0
-				fi
+	# GMAIL, "GMA"
+	if [ ${unit_mail} -eq 1 ]; then
+		if [ $((cnt_mail++)) -ge ${upd_mail} ]; then
+			printf "%s%s\n" "GMA" "$(~/bin/gmail.sh)" > "${panel_fifo}"
+			cnt_mail=0
 		fi
+	fi
 
-  # MPD
-		if [ ${unit_mpd} -eq 1 ]; then
-				if [ $((cnt_mpd++)) -ge ${upd_mpd} ]; then
-						 #printf "%s%s\n" "MPD" "$(ncmpcpp --now-playing '{%a - %t}|{%f}' | head -c 60)" > "${panel_fifo}"
-						   printf "%s%s\n" "MPD" "$(mpc current -f '[[%artist% - ]%title%]|[%file%]' 2>&1 | head -c 70)" > "${panel_fifo}"
-				 cnt_mpd=0
-				fi
+	# MPD
+	if [ ${unit_mpd} -eq 1 ]; then
+		if [ $((cnt_mpd++)) -ge ${upd_mpd} ]; then
+			#printf "%s%s\n" "MPD" "$(ncmpcpp --now-playing '{%a - %t}|{%f}' | head -c 60)" > "${panel_fifo}"
+			printf "%s%s\n" "MPD" "$(mpc current -f '[[%artist% - ]%title%]|[%file%]' 2>&1 | head -c 70)" > "${panel_fifo}"
+			cnt_mpd=0
 		fi
+	fi
+
+	# Battery, "BAT"
+	if [ ${unit_bat} -eq 1 ]; then
+		if [ $((cnt_bat++)) -ge ${upd_bat} ]; then
+			printf "%s%s\n" "BAT" "$(acpi --battery | cut -d, -f2)" > "${panel_fifo}"
+			cnt_bat=0
+		fi
+	fi
+
 
   # Finally, wait 1 second
   sleep 1s;

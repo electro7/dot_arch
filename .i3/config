@@ -1,18 +1,19 @@
-# i3 config file (v4.8)
+# i3 config file (v4)
+# v4.15
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-# 22 jul 2015 - E7
+# 04 nov 2018 - Electro7
 
 #.......
 # Font
 #.......
 
-#set $ft xft:DroidSans:size=8
-#set $ft pango:Inconsolata:size=8
+set $ft xft:DroidSans:size=8
+#set $ft pango:Inconsolata:size=12
 #set $ft -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
-font pango:Terminus 8
-set $ft terminus12
-#font $ft
+#font pango:Terminus 8
+#set $ft terminus12
+font $ft
 
 #..........
 # Look
@@ -72,11 +73,13 @@ bindcode $mod+Mod1+28 exec ~/.i3/i3_focus_or_run.sh -t mldonkey ~/bin/terminal m
 # start dmenu (mod+x)
 bindcode $mod+53 exec dmenu_run -fn "$ft" -nb "$back" -nf "$white" -sb "$yellow" -sf "$black"
 
-# Media keys
-# En Manzanita ya lo hace solo el pbbuttons
-#bindcode 123 exec --no-startud-id "amixer sset Master 5%+"
-#bindcode 122 exec --no-startud-id "amixer sset Master 5%-"
-#bindcode 121 exec --no-startud-id "amixer -q sset Master toggle"
+# Laptop keys
+bindcode 123 exec "amixer sset Master 5%+"
+bindcode 122 exec "amixer sset Master 5%-"
+bindcode 121 exec "amixer -q sset Master toggle"
+bindcode 198 exec "amixer -q sset Mic toggle"
+bindcode 232 exec "xbacklight -dec 5"
+bindcode 233 exec "xbacklight -inc 5"
 #bindcode XF86AudioPlay exec ncmpcpp toggle
 #bindcode XF86AudioStop exec ncmpcpp stop
 #bindcode XF86AudioPrev exec ncmpcpp prev
@@ -84,6 +87,7 @@ bindcode $mod+53 exec dmenu_run -fn "$ft" -nb "$back" -nf "$white" -sb "$yellow"
 
 #assign application to workspace
 assign [class="(i)Firefox"] 2:www
+assign [class="(i)Navigator"] 2:www
 assign [class="(i)VirtualBox"] 3:vbox
 assign [instance="(?i)TeamViewer.exe"] 4:vnc
 #assign [class="Firefox"] → 2
@@ -164,7 +168,7 @@ bindcode $mod+15 workspace 6:img
 bindcode $mod+16 workspace 7:misc
 bindcode $mod+17 workspace 8
 bindcode $mod+18 workspace 9
-bindcode $mod+19 workspace 10
+bindcode $mod+19 workspace 10:float
 
 # move focused container to workspace
 bindcode $mod+Shift+10 move container to workspace 1:term
@@ -176,7 +180,7 @@ bindcode $mod+Shift+15 move container to workspace 6:img
 bindcode $mod+Shift+16 move container to workspace 7:misc
 bindcode $mod+Shift+17 move container to workspace 8
 bindcode $mod+Shift+18 move container to workspace 9
-bindcode $mod+Shift+19 move container to workspace 10
+bindcode $mod+Shift+19 move container to workspace 10:float
 
 # reload the configuration file (mod+shitf+c)
 bindcode $mod+Shift+54 reload

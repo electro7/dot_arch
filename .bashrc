@@ -138,6 +138,7 @@ alias halt="sudo /sbin/poweroff"
 alias poweroff="sudo /sbin/poweroff"
 alias xcdroast="sudo /usr/bin/xcdroast"
 alias gtkam="sudo /usr/bin/gtkam"
+alias pacman="sudo pacman"
 
 # Alias para las X
 alias xvi="terminal vim"
@@ -153,6 +154,7 @@ alias xt="terminal"
 alias gia="git add"
 alias gcm="git commit -a -m"
 alias gp="git push"
+alias gs="git status"
 
 # Mis chuletas
 alias chuleta="vim ~/.vim/doc/chuletario.txt"
@@ -163,12 +165,15 @@ alias col_light="sh ~/.config/termcolours/light.sh"
 alias col_default="sh ~/.config/termcolours/default.sh"
 
 # Wifi on/off
-alias wifi_on="nmcli nm wifi on"
-alias wifi_off="nmcli nm wifi off"
+alias wifi_on="sudo netctl start"
+alias wifi_off="sudo netctl stop"
+alias wifi_status="iw dev wlan0 info"
+alias wifi_menu="wifi-menu"
 
 # App varias
 alias mldonkey="mldonkey -stdout -verbosity verb"
 alias netload="speedometer -r eth0 -t eth0"
+alias paclean="sudo pacman -S --clean --clean"
 
 #----------------------------------------------------------------------#
 # OTROS

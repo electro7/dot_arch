@@ -13,15 +13,18 @@ unit_vol=1							# volume section
 unit_mpd=0							# mpd section
 unit_mail=0							# mail section
 unit_irc=0							# weechat section
+unit_bat=1							# battery section
 
 # Alarm settings
 cpu_alert=75                        # % cpu use
 net_alert=5                         # K net use
+bat_alert=15                        # % bat alarm
 
 # update setting, in seconds (conky update in i3_lemonbar_conky
-upd_vol=3                           # Volume update
+upd_vol=2                           # Volume update
 upd_mail=300                        # Mail check update
 upd_mpd=5                           # MPD song update
+upd_bat=3							# Battery update
 
 # color definitions 
 color_back="#FF1D1F21"              # Default background
@@ -37,6 +40,7 @@ color_cpu="#FF5F819D"               # Background color for cpu alert
 color_net="#FF5E8D87"               # Background color for net alert
 color_disable="#FF1D1F21"           # Foreground for disable elements
 color_wsp="#FF8C9440"               # Background for selected workspace
+color_batº"#FF5E8D87"               # Background color for bat alert
 
 #default space between sections
 if [ ${res_w} -gt 1024 ]; then
