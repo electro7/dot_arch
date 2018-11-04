@@ -40,7 +40,7 @@ color_cpu="#FF5F819D"               # Background color for cpu alert
 color_net="#FF5E8D87"               # Background color for net alert
 color_disable="#FF1D1F21"           # Foreground for disable elements
 color_wsp="#FF8C9440"               # Background for selected workspace
-color_batº"#FF5E8D87"               # Background color for bat alert
+color_bat="#FF5F819D"               # Background color for bat alert
 
 #default space between sections
 if [ ${res_w} -gt 1024 ]; then

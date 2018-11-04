@@ -71,6 +71,10 @@ while read -r line ; do
       # Volume
       vol="%{F${color_sec_b2}}${sep_left}%{F${color_icon} B${color_sec_b2}} %{T2}${icon_vol}%{F- T1} ${line#???}"
       ;;
+    BAT*)
+      # Battery
+      bat="%{F${color_sec_b2}}${sep_left}%{F${color_icon} B${color_sec_b2}} %{T2}${icon_vol}%{F- T1} ${line#???}"
+      ;;
     GMA*)
       # Gmail
       gmail="${line#???}"
@@ -129,6 +133,6 @@ while read -r line ; do
   esac
 
   # And finally, output
-  printf "%s\n" "%{l}${wsp}${title} %{r}${mpd}${stab}${irc}${stab}${gmail}${stab}${cpu}${stab}${mem}${stab}${diskr}${stab}${diskh}${stab}${wland}${stab}${wlanu}${stab}${ethd}${stab}${ethu}${stab}${vol}${stab}${date}${stab}${time}"
+  printf "%s\n" "%{l}${wsp}${title} %{r}${mpd}${stab}${irc}${stab}${gmail}${stab}${cpu}${stab}${mem}${stab}${diskr}${stab}${diskh}${stab}${wland}${stab}${wlanu}${stab}${ethd}${stab}${ethu}${stab}${vol}${stab}${bat}${stab}${date}${stab}${time}"
   #printf "%s\n" "%{l}${wsp}${title}"
 done

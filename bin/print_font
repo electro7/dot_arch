@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Imprime todos los caracteres de una fuente
+
+cnt=0
+
+while [ ${cnt} -lt 65535 ]; do
+	#echo -e "$cnt -> \\u$((cnt++))\t$cnt -> \\u$((cnt++))\t$cnt -> \\u$((cnt++))\t$cnt -> \\u$((cnt++))"
+	echo -e "$((cnt++)) = \\u$(printf "%x" $cnt)\t$((cnt++)) = \\u$(printf "%x" $cnt)\t$((cnt++)) = \\u$(printf "%x" $cnt)\t$((cnt++)) = \\u$(printf "%x" $cnt)\t"
+done
