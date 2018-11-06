@@ -225,5 +225,5 @@ bindsym $mod+r mode "resize"
 
 # My bar
 bar {
-  i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh
+  i3bar_command ~/.config/i3/lemonbar/i3_lemonbar.sh
 }

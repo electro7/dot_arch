@@ -25,7 +25,6 @@ CONTENIDO                                                 *chuleta_contenido*
   - Fuentes, temas, iconos                          |chuleta_fuentes_temas_gtk|
   - Drivers NVIDIA                                  |chuleta_nvidia|
   - Wireless	                                    |chuleta_wireless|
-  - Debian en Powerbook                             |chuleta_powerbook|
   - Versionitis con GIT                             |chuleta_git|
   - Instalando fuentes                              |chuleta_checkinstall|
   - Instalando Linux en SSD                         |disco_ssd|
@@ -34,6 +33,9 @@ CONTENIDO                                                 *chuleta_contenido*
   - MPD y ncmpcpp                                   |mpd_ncmpcpp|
   - Systemd en Debian				    |systemd|
   - Servidor DLNA en Debian			    |dlna|
+  - systemctl en archlinux			    |systemctl| |arch|
+  - Red en archlinux				    |netctl| |arch|
+  - Paquetes archlinux				    |pacman| |arch|
 
 ==============================================================================
 ==============================================================================
@@ -566,32 +568,6 @@ el "nm-applet" y au!.
 - Desde consola podemos usar el nm-tool, el nmcli y el nm-online.
 
 ==============================================================================
-DEBIAN EN POWERBOOK                                     *chuleta_powerbook*
-
-- El control de temperatura viene con el módulo "therm_adt746x". Poner
-  la carga manualmente en "/etc/modules".
-
-- Cambiar entre consolas virtuales -> ctrl + alt + fn + manzana izq.
-
-- X (ver xorg.conf). Las ultimas debian no llevan xorg.conf, pero basta con
-  copiarlo en "/etc/X11".
-
-----------------------------------------------------------------------------
-Botón izquierdo (3) y central del ratón (2).
-
-- Añadir esto en /etc/sysctl.conf
->
-  dev.mac_hid.mouse_button3_keycode = 126
-  dev.mac_hid.mouse_button2_keycode = 127
-  dev.mac_hid.mouse_button_emulation = 1
-
-- Luego hacer "sysctl -p /etc/sysctl.conf"
-- Ya funciona el botón izquierdo con la tecla Fn+ manzana y el botón central
-  con la tecla Fn+^(enter al lado de la manzana).
-- Si no va, averiguar el código de la tecla desde una consola fuera de
-  X con "showkey".
-
-==============================================================================
 GIT                                                              *chuleta_git*
 
 BASICO                                                    *chuleta_git_basico*
@@ -902,7 +878,90 @@ Se hace la administración desde "VboxManage":
   Activa el escritorio remoto (mstsc) en el puerto 3389 para la máquina. El
   puerto se puede cambiar con --vrderproperty "TCP/Ports|Address=<value>"
 
+==============================================================================
+SYSTEMCTL ARCHLINUX					 *systemctl* *arch*
 
+Activa "servicios" (demonios):
 
+- systemctl enable <servicio> ~
+  Activa el servicio en el arranque.
+
+- systemctl disable <servicio>~
+  Arranca la máquina.
+
+- systemctl start/stop/restart/reload <servicio>~
+  Arranca/para el servicio manualmente.
+
+- systemctl list-units ~
+  Lista servicios. Con <-all> se listan hasta los inactivos.
+>
+  systemctl list-units lightdm*
+<
+
+==============================================================================
+RED EN ARCHLINUX					 *netctl* *arch*
+
+Para el manejo de la red en archlinux, nada mejor que el netctl, tanto para
+wifi (wlan) como por cable (eth).
+
+Es necesario instalar el "wpa_suplicant" para que funcione la autentificación
+WPA en wifi.
+
+Es necesario instalar el "dhcpcd" para DHCP. Quitar si existiese el servicio
+dhcpcd de los servicios en el arranque.
+
+Es necesario el "dialog" para el "wifi-menu".
+
+Se basa en archivos de "profile" que van en {/etc/netctl}. Existen varios ejemplos 
+en {/etc/netctl/examples}
+
+Por ejemplo, para ip fija en eth0:
+>
+    Description='A basic static ethernet connection'
+    Interface=eth0
+    Connection=ethernet
+    IP=static
+    Address=('192.168.7.11/24')
+    Gateway='192.168.7.1'
+    DNS=('8.8.8.8')
+<
+
+Las conexiones de wifi se pueden generar simplemente ejecutando "wifi-menu". Es
+necesario que antes no exista ninguna conexión wifi activa o fallará.
+
+Uso básico:
+
+- netctl start/stop <profile> ~
+  Arranca/para un profile.
+
+- netctl enable/disable <profile>~
+  Activa/desactiva un profile en el arranque con systemctl.
+
+- ip addr ~
+  Lista las IP's
+
+- iw dev wlan0 info~
+  Muestra el estado de la conexión wifi.
+
+==============================================================================
+PAQUETES EN ARCHLINUX					 *pacman* *arch*
+
+- pacman -S <paquete>~
+  Instalar un paquete.
+
+- pacman -Ss <paquete>~
+  Buscar un paquete.
+
+- pacman -Rs <paquete>~
+  Borra un paquete y sus dependencias que no son necesarias por otro paquete.
+
+- pacman -Syyu ~
+  Actualiza el sistema.
+
+- pacman -Qs <paquete> ~
+  Busca en paquetes instalados.
+
+- pacman -Qu~
+  Lista paquetes para actualizar.
 
 vim:tw=78:ts=8:wrap:ft=help:norl
