@@ -18,6 +18,7 @@ doc/*
 downloads/*
 .fehbg
 .fetchmailrc
+.fltk/*
 .fontconfig/*
 .fonts/arial.ttf
 .fonts/tahoma.ttf
@@ -38,7 +39,8 @@ downloads/*
 .icons/*
 .lesshst
 .lftp/*
-.local/*
+.local/share/*
+!.local/share/fonts/
 mail/*
 mbox
 music

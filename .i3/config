@@ -109,7 +109,7 @@ assign [instance="(?i)TeamViewer.exe"] 4:vnc
 # Layout
 for_window [class="(?i)feh"] floating enable
 for_window [class="(?i)gcolor2"] floating enable
-for_window [class="(?i)gbdfed"] floating enable
+for_window [class="(?i)gucharmap"] floating enable
 for_window [class="(?i)lxappearance"] floating enable
 for_window [instance="(?i)TeamViewer.exe"] floating enable
 for_window [class="(?i)VirtualBox"] floating enable

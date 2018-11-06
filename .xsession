@@ -20,10 +20,10 @@ xset s off
 xset dpms 3600 3600 3600
 
 # Mis fuentes
-xset fp+ $HOME/.fonts/misc
-xset fp+ $HOME/.fonts/ohsnap
-xset fp+ $HOME/.fonts/terminesspowerline
-xset fp+ $HOME/.fonts/tewi
+xset fp+ $HOME/.local/share/fonts/misc
+xset fp+ $HOME/.local/share/fonts/ohsnap
+xset fp+ $HOME/.local/share/fonts/terminesspowerline
+xset fp+ $HOME/.local/share/fonts/tewi
 fc-cache -v
 # TTF se cargan automaticamente en .fonts
 
