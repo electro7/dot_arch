@@ -1,5 +1,5 @@
 # i3 config file (v4)
-# v4.15
+# v4.16
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 # 04 nov 2018 - Electro7
@@ -8,10 +8,9 @@
 # Font
 #.......
 
-set $ft xft:DroidSans:size=8
-#set $ft pango:Inconsolata:size=12
+#set $ft xft:Inconsolata Nerd Font Mono:size=10
 #set $ft -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
-#font pango:Terminus 8
+set $ft pango: Inconsolata Nerd Font 10
 #set $ft terminus12
 font $ft
 
@@ -34,7 +33,7 @@ new_float pixel 2
 #set $green              #B5BD56
 
 # Reading colors from resources
-set_from_resource $back			i3wm.background	#1d1F21
+set_from_resource $back			i3wm.background #1D1F21
 set_from_resource $black		i3wm.color0		#282A2E
 set_from_resource $grey			i3wm.color8		#373B41
 set_from_resource $lightgrey	i3wm.color7		#707880
@@ -70,15 +69,15 @@ bindsym $mod+Mod1+a exec lxappearance
 # Color picker (mod+alt+g)
 bindsym $mod+Mod1+g exec gcolor2
 # htop (mod+alt+h)
-bindsym $mod+Mod1+h exec ~/.i3/i3_focus_or_run.sh -t htop ~/bin/terminal htop
+bindsym $mod+Mod1+h exec ~/.config/i3/i3_focus_or_run.sh -t htop ~/bin/terminal htop
 # weechat (mod+alt+i)
-bindsym $mod+Mod1+i exec ~/.i3/i3_focus_or_run.sh -t weechat ~/bin/terminal weechat
+bindsym $mod+Mod1+i exec ~/.config/i3/i3_focus_or_run.sh -t weechat ~/bin/terminal weechat
 # iceweasel (mod+alt+m)
-bindsym $mod+Mod1+m exec ~/.i3/i3_focus_or_run.sh -c firefox firefox
+bindsym $mod+Mod1+m exec ~/.config/i3/i3_focus_or_run.sh -c firefox firefox
 # virtualbox (mod+alt+v)
-bindsym $mod+Mod1+v exec ~/.i3/i3_focus_or_run.sh -c VirtualBox VirtualBox
+bindsym $mod+Mod1+v exec ~/.config/i3/i3_focus_or_run.sh -c VirtualBox VirtualBox
 # mldonky (mod+alt+t)
-bindsym $mod+Mod1+t exec ~/.i3/i3_focus_or_run.sh -t mldonkey ~/bin/terminal mldonkey
+bindsym $mod+Mod1+t exec ~/.config/i3/i3_focus_or_run.sh -t mldonkey ~/bin/terminal mldonkey
 # start dmenu (mod+x)
 bindsym $mod+x exec dmenu_run -fn "$ft" -nb "$back" -nf "$white" -sb "$yellow" -sf "$black"
 
@@ -95,26 +94,28 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
 #bindsym XF86AudioNext exec ncmpcpp next
 
 #assign application to workspace
-assign [class="(i)Firefox"] 2:www
-assign [class="(i)Navigator"] 2:www
-assign [class="(i)VirtualBox"] 3:vbox
+assign [class="(?i)Firefox"] 2:www
+assign [class="(?i)Navigator"] 2:www
+assign [class="(?i)VirtualBox"] 3:vbox
 assign [instance="(?i)TeamViewer.exe"] 4:vnc
-#assign [class="Firefox"] → 2
-#assign [class="Google-chrome"] → 2
-#assign [class="vlc"] → 4
-#assign [class="xv/mplayer"] → 4
-#assign [class="Gimp"] → 3
+assign [class="Google-chrome"] 2:www
+assign [class="vlc"] 5:vid
+assign [class="mpv"] 6:vid
+assign [class="xv/mplayer"] 5:vid
+assign [class="Gimp"] 6:img
 #assign [class="Zathura"] → 5
 
 # Layout
 for_window [class="(?i)feh"] floating enable
 for_window [class="(?i)gcolor2"] floating enable
-for_window [class="(?i)gucharmap"] floating enable
+#for_window [class="(?i)gucharmap"] floating enable
 for_window [class="(?i)lxappearance"] floating enable
 for_window [instance="(?i)TeamViewer.exe"] floating enable
 for_window [class="(?i)VirtualBox"] floating enable
 for_window [class="(?i)mplayer2"] floating enable
 for_window [instance="(?i)mplayer2"] floating enable
+for_window [class="(?i)mpv"] floating enable
+for_window [workspace=10] floating enable
 
 #...........
 # Keybinds i3
@@ -172,24 +173,24 @@ bindsym $mod+1 workspace 1:term
 bindsym $mod+2 workspace 2:www
 bindsym $mod+3 workspace 3:vbox
 bindsym $mod+4 workspace 4:vnc
-bindsym $mod+5 workspace 5:doc
+bindsym $mod+5 workspace 5:vid
 bindsym $mod+6 workspace 6:img
 bindsym $mod+7 workspace 7:misc
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10:float
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1:term
 bindsym $mod+Shift+2 move container to workspace 2:www
 bindsym $mod+Shift+3 move container to workspace 3:vbox
 bindsym $mod+Shift+4 move container to workspace 4:vnc
-bindsym $mod+Shift+5 move container to workspace 5:doc
+bindsym $mod+Shift+5 move container to workspace 5:vid
 bindsym $mod+Shift+6 move container to workspace 6:img
 bindsym $mod+Shift+7 move container to workspace 7:misc
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10:float
+bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file (mod+shitf+c)
 bindsym $mod+Shift+c reload
@@ -223,7 +224,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# My bar
-bar {
-  i3bar_command ~/.config/i3/lemonbar/i3_lemonbar.sh
-}
+# My bar -> Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+#bar {
+#  i3bar_command ~/.config/i3/lemonbar/i3_lemonbar.sh
+#}

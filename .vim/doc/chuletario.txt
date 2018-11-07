@@ -33,9 +33,9 @@ CONTENIDO                                                 *chuleta_contenido*
   - MPD y ncmpcpp                                   |mpd_ncmpcpp|
   - Systemd en Debian				    |systemd|
   - Servidor DLNA en Debian			    |dlna|
-  - systemctl en archlinux			    |systemctl| |arch|
-  - Red en archlinux				    |netctl| |arch|
-  - Paquetes archlinux				    |pacman| |arch|
+  - systemctl en archlinux			    |systemctl| |arch|
+  - Red en archlinux				    |netctl| |arch|
+  - Paquetes archlinux				    |pacman| |arch|
 
 ==============================================================================
 ==============================================================================
@@ -912,7 +912,7 @@ dhcpcd de los servicios en el arranque.
 
 Es necesario el "dialog" para el "wifi-menu".
 
-Se basa en archivos de "profile" que van en {/etc/netctl}. Existen varios ejemplos 
+Se basa en archivos de "profile" que van en {/etc/netctl}. Existen varios ejemplos
 en {/etc/netctl/examples}
 
 Por ejemplo, para ip fija en eth0:
@@ -925,10 +925,9 @@ Por ejemplo, para ip fija en eth0:
     Gateway='192.168.7.1'
     DNS=('8.8.8.8')
 <
-
 Las conexiones de wifi se pueden generar simplemente ejecutando "wifi-menu". Es
 necesario que antes no exista ninguna conexión wifi activa o fallará.
-
+
 Uso básico:
 
 - netctl start/stop <profile> ~
@@ -963,5 +962,18 @@ PAQUETES EN ARCHLINUX					 *pacman* *arch*
 
 - pacman -Qu~
   Lista paquetes para actualizar.
+
+Archlinux tiene un sistema llamado AUR donde los usuarios pueden aportar
+paquetes. Se descargan con "git clone", donde se baja un fichero llamado
+"PKGBUILD" que se compila e instala con "makepkg -si". Para manejar este
+repositorio existen varias herramientas, la que uso hasta el momento es "yay"
+que tiene la misma sintaxis que "pacman". "yay" se encarga de todo, bajar del
+git, instalar dependencias, compilar e instalar.
+
+Ejemplos:
+
+- yay Qu ~
+  Lista paquetes para actualizar.
+
 
 vim:tw=78:ts=8:wrap:ft=help:norl

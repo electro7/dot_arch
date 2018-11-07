@@ -49,7 +49,7 @@ call vundle#begin()
 	Plugin 'altercation/vim-colors-solarized.git'	" Solarized theme
 	"Plugin 'nathanaelkane/vim-indent-guides.git'	" Show tab/space guides
 
-  " All of your Plugins must be added before the following line
+	" All of your Plugins must be added before the following line
 call vundle#end()
 
 if has("win32")
@@ -237,7 +237,6 @@ nnoremap <leader>vr :source $HOME/.vimrc<CR>
 " Search and delete for trailing spaces and spaces before a tab
 nnoremap <leader>w :%s/\s\+$\\| \+\ze\t//gc<CR>
 
-
 " Buffer deletion (buffkill plugin)
 nnoremap <leader>x :BD<CR>
 nnoremap <C-X> :BD<CR>
@@ -304,6 +303,9 @@ iab _home ~/
 let g:airline_inactive_collapse = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 if has("win32") || &term != "rxvt-unicode-256color"
 	let g:airline_powerline_fonts = 0
 	let g:airline_symbols = {}
@@ -314,6 +316,8 @@ if has("win32") || &term != "rxvt-unicode-256color"
 	let g:airline_theme = 'air_e7'
 else
 	let g:airline_powerline_fonts = 1
+	let g:airline_symbols.linenr = ''
+	let g:airline_symbols.whitespace = ''
 	let g:airline_theme = 'air_e7'
 endif
 

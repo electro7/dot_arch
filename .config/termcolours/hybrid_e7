@@ -8,6 +8,11 @@
 *foreground: #C5C8C6
 *cursorColor: #C3FF00
 
+! Sections por polybar
+*sec_b1: #282A2E
+*sec_b2: #454A4F
+*sec_b3: #60676E
+
 ! black
 *color0: #282A2E
 *color8: #373B41

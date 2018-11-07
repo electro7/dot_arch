@@ -12,11 +12,14 @@ backup/*
 !.config/fontconfig/
 !.config/mpd/mpd.conf
 !.config/i3/
+!.config/polybar/
+!.config/dunst/
 .dbus/*
 .dmenu_cache
 .dmrc
 doc/*
 downloads/*
+extra
 .fehbg
 .fetchmailrc
 .fltk/*
