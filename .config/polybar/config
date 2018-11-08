@@ -19,12 +19,11 @@
 [colors]
 foreground = ${xrdb:foreground}
 background = ${xrdb:background}
-primary = ${xrdb:color10}
-warn = ${xrdb:color9}
-alert = ${xrdb:color11}
-sec_b1 = ${xrdb:sec_b1}
-sec_b2 = ${xrdb:sec_b2}
-sec_b3 = ${xrdb:sec_b3}
+highlight = ${xrdb:color10}
+warn = ${xrdb:color1}
+alert = ${xrdb:color3}
+section = ${xrdb:color8}
+section_off = ${xrdb:color0}
 black = #000000
 
 ;=====================================================
@@ -46,12 +45,26 @@ wlan=wlan0
 [fonts]
 font-0 = "Inconsolata Nerd Font:size=12:antialias=true;2"
 font-1 = "Inconsolata Nerd Font:size=14:antialias=true;3"
+font-2 = "Inconsolata Nerd Font:size=12:antialias=true;2"
+
+;=====================================================
+;   settings
+;=====================================================
+[settings]
+screenchange-reload = true
+
+;=====================================================
+;   global/wm
+;=====================================================
+[global/wm]
+margin-top = 0
+margin-bottom = 0
 
 ;=====================================================
 ;   bar/top
 ;=====================================================
 [bar/top]
-;monitor = ${env:MONITOR}
+monitor = ${env:MONITOR}
 height = ${variables.bar-height}
 bottom = false
 fixed-center = true
@@ -64,252 +77,110 @@ foreground = ${colors.foreground}
 
 font-0 = ${fonts.font-0}
 font-1 = ${fonts.font-1}
+font-2 = ${fonts.font-2}
 
-modules-left = wifi_name eth_name lpd i3 wifi eth ldp lpd
+modules-left = i3 ldp lpd
 modules-center =
-modules-right = memory cpu temperature battery volume date time
+modules-right = cpu temperature memory wifi eth volume battery date time
+
+;tray-position = right
+;tray-detached = false
+;tray-maxsize = 15
+;tray-transparent = false
+;tray-background = ${colors.highlight}
+;tray-offset-x = 0
+;tray-offset-y = 0
+;tray-padding = 1
+;tray-scale = 1.0
 
 ;=====================================================
-;   bar/top_with_tray
+;   section/base
 ;=====================================================
-[bar/top_with_tray]
-;monitor = ${env:MONITOR}
-height = ${variables.bar-height}
-bottom = false
-fixed-center = true
-
-border-bottom-size = ${variables.bar-border-size}
-border-color = ${colors.black}
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-font-0 = ${fonts.font-0}
-font-1 = ${fonts.font-1}
-
-modules-left = wifi_name eth_name lpd i3 wifi eth ldp lpd
-modules-center =
-modules-right = rdp rpd mpd_title mpd battery memory cpu temperature volume date time rdp
-
-tray-position = right
-tray-detached = false
-tray-maxsize = 15
-tray-transparent = false
-tray-background = ${colors.primary}
-tray-offset-x = 0
-tray-offset-y = 0
-tray-padding = 1
-tray-scale = 1.0
-
-;=====================================================
-;   section/base_left
-;=====================================================
-[section/base_left]
-format-prefix = %{T2}%{T-}
-format-prefix-foreground = ${colors.background}
-format-prefix-background = ${colors.sec_b1}
-format-connected-prefix = %{T2}%{T-}
-format-connected-prefix-foreground = ${colors.background}
-format-connected-prefix-background = ${colors.sec_b1}
-format-warn-prefix = %{T2}%{T-}
-format-warn-prefix-foreground = ${colors.background}
-format-warn-prefix-background = ${colors.warn}
-format-volume-prefix = %{T2}%{T-}
-format-volume-prefix-foreground = ${colors.background}
-format-volume-prefix-background = ${colors.sec_b1}
-format-muted-prefix = %{T2}%{T-}
-format-muted-prefix-foreground = ${colors.background}
-format-muted-prefix-background = ${colors.warn}
-format-charging-prefix = %{T2}%{T-}
-format-charging-prefix-foreground = ${colors.background}
-format-charging-prefix-background = ${colors.sec_b1}
-format-discharging-prefix = %{T2}%{T-}
-format-discharging-prefix-foreground = ${colors.background}
-format-discharging-prefix-background = ${colors.warn}
-format-full-prefix = %{T2}%{T-}
-format-full-prefix-foreground = ${colors.background}
-format-full-prefix-background = ${colors.sec_b1}
-format-playing-prefix = %{T2}%{T-}
-format-playing-prefix-foreground = ${colors.background}
-format-playing-prefix-background = ${colors.sec_b1}
-format-paused-prefix = %{T2}%{T-}
-format-paused-prefix-foreground = ${colors.background}
-format-paused-prefix-background = ${colors.sec_b1}
-format-stopped-prefix = %{T2}%{T-}
-format-stopped-prefix-foreground = ${colors.background}
-format-stopped-prefix-background = ${colors.sec_b1}
-
-format-foreground = ${colors.foreground}
-format-background = ${colors.sec_b1}
-format-connected-foreground = ${colors.foreground}
-format-connected-background = ${colors.sec_b1}
-format-warn-foreground = ${colors.foreground}
-format-warn-background = ${colors.warn}
-format-volume-foreground = ${colors.foreground}
-format-volume-background = ${colors.sec_b1}
-format-muted-foreground = ${colors.foreground}
-format-muted-background = ${colors.warn}
-format-charging-foreground = ${colors.foreground}
-format-charging-background = ${colors.sec_b1}
-format-discharging-foreground = ${colors.foreground}
-format-discharging-background = ${colors.warn}
-format-full-foreground = ${colors.foreground}
-format-full-background = ${colors.sec_b1}
-format-playing-foreground = ${colors.foreground}
-format-playing-background = ${colors.sec_b1}
-format-paused-foreground = ${colors.foreground}
-format-paused-background = ${colors.sec_b1}
-format-stopped-foreground = ${colors.foreground}
-format-stopped-background = ${colors.sec_b1}
-
-format-suffix = %{T2}%{T-}
-format-suffix-foreground = ${colors.sec_b1}
-format-suffix-background = ${colors.background}
-format-connected-suffix = %{T2}%{T-}
-format-connected-suffix-foreground = ${colors.sec_b1}
-format-connected-suffix-background = ${colors.background}
-format-warn-suffix = %{T2}%{T-}
-format-warn-suffix-foreground = ${colors.warn}
-format-warn-suffix-background = ${colors.background}
-format-volume-suffix = %{T2}%{T-}
-format-volume-suffix-foreground = ${colors.sec_b1}
-format-volume-suffix-background = ${colors.background}
-format-muted-suffix = %{T2}%{T-}
-format-muted-suffix-foreground = ${colors.warn}
-format-muted-suffix-background = ${colors.background}
-format-charging-suffix = %{T2}%{T-}
-format-charging-suffix-foreground = ${colors.sec_b1}
-format-charging-suffix-background = ${colors.background}
-format-discharging-suffix = %{T2}%{T-}
-format-discharging-suffix-foreground = ${colors.warn}
-format-discharging-suffix-background = ${colors.background}
-format-full-suffix = %{T2}%{T-}
-format-full-suffix-foreground = ${colors.sec_b1}
-format-full-suffix-background = ${colors.background}
-format-playing-suffix = %{T2}%{T-}
-format-playing-suffix-foreground = ${colors.sec_b1}
-format-playing-suffix-background = ${colors.background}
-format-paused-suffix = %{T2}%{T-}
-format-paused-suffix-foreground = ${colors.sec_b1}
-format-paused-suffix-background = ${colors.background}
-format-stopped-suffix = %{T2}%{T-}
-format-stopped-suffix-foreground = ${colors.sec_b1}
-format-stopped-suffix-background = ${colors.background}
-
-label-padding = ${variables.label-padding}
-label-connected-padding = ${variables.label-padding}
-label-warn-padding = ${variables.label-padding}
-label-volume-padding = ${variables.label-padding}
-label-muted-padding = ${variables.label-padding}
-label-charging-padding = ${variables.label-padding}
-label-discharging-padding = ${variables.label-padding}
-label-full-padding = ${variables.label-padding}
-label-song-padding = ${variables.label-padding}
-
-;=====================================================
-;   section/base_right
-;=====================================================
-[section/base_right]
+[section/base]
 format-prefix = %{T2}%{T-}
-format-prefix-foreground = ${colors.sec_b1}
+format-prefix-foreground = ${colors.section}
 format-prefix-background = ${colors.background}
-format-connected-prefix = %{T2}%{T-}
-format-connected-prefix-foreground = ${colors.sec_b1}
-format-connected-prefix-background = ${colors.background}
 format-warn-prefix = %{T2}%{T-}
 format-warn-prefix-foreground = ${colors.warn}
 format-warn-prefix-background = ${colors.background}
+format-connected-prefix = %{T2}%{T-}
+format-connected-prefix-foreground = ${colors.section}
+format-connected-prefix-background = ${colors.background}
+format-disconnected-prefix = %{T2}%{T-}
+format-disconnected-prefix-foreground = ${colors.section_off}
+format-disconnected-prefix-background = ${colors.background}
 format-volume-prefix = %{T2}%{T-}
-format-volume-prefix-foreground = ${colors.sec_b1}
+format-volume-prefix-foreground = ${colors.section}
 format-volume-prefix-background = ${colors.background}
 format-muted-prefix = %{T2}%{T-}
-format-muted-prefix-foreground = ${colors.warn}
+format-muted-prefix-foreground = ${colors.alert}
 format-muted-prefix-background = ${colors.background}
 format-charging-prefix = %{T2}%{T-}
-format-charging-prefix-foreground = ${colors.sec_b1}
+format-charging-prefix-foreground = ${colors.section}
 format-charging-prefix-background = ${colors.background}
 format-discharging-prefix = %{T2}%{T-}
-format-discharging-prefix-foreground = ${colors.warn}
+format-discharging-prefix-foreground = ${colors.section}
 format-discharging-prefix-background = ${colors.background}
 format-full-prefix = %{T2}%{T-}
-format-full-prefix-foreground = ${colors.sec_b1}
+format-full-prefix-foreground = ${colors.section}
 format-full-prefix-background = ${colors.background}
-format-playing-prefix = %{T2}%{T-}
-format-playing-prefix-foreground = ${colors.sec_b1}
-format-playing-prefix-background = ${colors.background}
-format-paused-prefix = %{T2}%{T-}
-format-paused-prefix-foreground = ${colors.sec_b1}
-format-paused-prefix-background = ${colors.background}
-format-stopped-prefix = %{T2}%{T-}
-format-stopped-prefix-foreground = ${colors.sec_b1}
-format-stopped-prefix-background = ${colors.background}
 
 format-foreground = ${colors.foreground}
-format-background = ${colors.sec_b1}
-format-connected-foreground = ${colors.foreground}
-format-connected-background = ${colors.sec_b1}
+format-background = ${colors.section}
 format-warn-foreground = ${colors.foreground}
 format-warn-background = ${colors.warn}
+format-connected-foreground = ${colors.foreground}
+format-connected-background = ${colors.section}
+format-disconnected-foreground = ${colors.foreground}
+format-disconnected-background = ${colors.section_off}
 format-volume-foreground = ${colors.foreground}
-format-volume-background = ${colors.sec_b1}
-format-muted-foreground = ${colors.foreground}
-format-muted-background = ${colors.warn}
+format-volume-background = ${colors.section}
+format-muted-foreground = ${colors.black}
+format-muted-background = ${colors.alert}
 format-charging-foreground = ${colors.foreground}
-format-charging-background = ${colors.sec_b1}
+format-charging-background = ${colors.section}
 format-discharging-foreground = ${colors.foreground}
-format-discharging-background = ${colors.warn}
+format-discharging-background = ${colors.section}
 format-full-foreground = ${colors.foreground}
-format-full-background = ${colors.sec_b1}
-format-playing-foreground = ${colors.foreground}
-format-playing-background = ${colors.sec_b1}
-format-paused-foreground = ${colors.foreground}
-format-paused-background = ${colors.sec_b1}
-format-stopped-foreground = ${colors.foreground}
-format-stopped-background = ${colors.sec_b1}
+format-full-background = ${colors.section}
 
 format-suffix = %{T2}%{T-}
 format-suffix-foreground = ${colors.background}
-format-suffix-background = ${colors.sec_b1}
-format-connected-suffix = %{T2}%{T-}
-format-connected-suffix-foreground = ${colors.background}
-format-connected-suffix-background = ${colors.sec_b1}
+format-suffix-background = ${colors.section}
 format-warn-suffix = %{T2}%{T-}
 format-warn-suffix-foreground = ${colors.background}
 format-warn-suffix-background = ${colors.warn}
+format-connected-suffix = %{T2}%{T-}
+format-connected-suffix-foreground = ${colors.background}
+format-connected-suffix-background = ${colors.section}
+format-disconnected-suffix = %{T2}%{T-}
+format-disconnected-suffix-foreground = ${colors.background}
+format-disconnected-suffix-background = ${colors.section_off}
 format-volume-suffix = %{T2}%{T-}
 format-volume-suffix-foreground = ${colors.background}
-format-volume-suffix-background = ${colors.sec_b1}
+format-volume-suffix-background = ${colors.section}
 format-muted-suffix = %{T2}%{T-}
 format-muted-suffix-foreground = ${colors.background}
-format-muted-suffix-background = ${colors.warn}
+format-muted-suffix-background = ${colors.alert}
 format-charging-suffix = %{T2}%{T-}
 format-charging-suffix-foreground = ${colors.background}
-format-charging-suffix-background = ${colors.sec_b1}
+format-charging-suffix-background = ${colors.section}
 format-discharging-suffix = %{T2}%{T-}
 format-discharging-suffix-foreground = ${colors.background}
-format-discharging-suffix-background = ${colors.warn}
+format-discharging-suffix-background = ${colors.section}
 format-full-suffix = %{T2}%{T-}
 format-full-suffix-foreground = ${colors.background}
-format-full-suffix-background = ${colors.sec_b1}
-format-playing-suffix = %{T2}%{T-}
-format-playing-suffix-foreground = ${colors.background}
-format-playing-suffix-background = ${colors.sec_b1}
-format-paused-suffix = %{T2}%{T-}
-format-paused-suffix-foreground = ${colors.background}
-format-paused-suffix-background = ${colors.sec_b1}
-format-stopped-suffix = %{T2}%{T-}
-format-stopped-suffix-foreground = ${colors.background}
-format-stopped-suffix-background = ${colors.sec_b1}
+format-full-suffix-background = ${colors.section}
 
 label-padding = ${variables.label-padding}
-label-connected-padding = ${variables.label-padding}
 label-warn-padding = ${variables.label-padding}
+label-connected-padding = ${variables.label-padding}
+label-disconnected-padding = ${variables.label-padding}
 label-volume-padding = ${variables.label-padding}
 label-muted-padding = ${variables.label-padding}
 label-charging-padding = ${variables.label-padding}
 label-discharging-padding = ${variables.label-padding}
 label-full-padding = ${variables.label-padding}
-label-song-padding = ${variables.label-padding}
 
 ;=====================================================
 ;   module/ldp
@@ -319,7 +190,7 @@ type = custom/text
 
 content = %{T2}%{T-}
 content-foreground = ${colors.background}
-content-background = ${colors.primary}
+content-background = ${colors.highlight}
 
 ;=====================================================
 ;   module/lpd
@@ -328,68 +199,8 @@ content-background = ${colors.primary}
 type = custom/text
 
 content = %{T2}%{T-}
-content-foreground = ${colors.primary}
+content-foreground = ${colors.highlight}
 content-background = ${colors.background}
-
-;=====================================================
-;   module/lpl
-;=====================================================
-[module/lpl]
-type = custom/text
-
-content = %{T2}%{T-}
-content-foreground = ${colors.primary}
-content-background = ${colors.sec_b1}
-
-;=====================================================
-;   module/rdp
-;=====================================================
-[module/rdp]
-type = custom/text
-
-content = %{T2}%{T-}
-content-foreground = ${colors.primary}
-content-background = ${colors.background}
-
-;=====================================================
-;   module/rlp
-;=====================================================
-[module/rlp]
-type = custom/text
-
-content = %{T2}%{T-}
-content-foreground = ${colors.primary}
-content-background = ${colors.sec_b1}
-
-;=====================================================
-;   module/rpd
-;=====================================================
-[module/rpd]
-type = custom/text
-
-content = %{T2}%{T-}
-content-foreground = ${colors.background}
-content-background = ${colors.primary}
-
-;=====================================================
-;   module/rpl
-;=====================================================
-[module/rpl]
-type = custom/text
-
-content = %{T2}%{T-}
-content-foreground = ${colors.sec_b1}
-content-background = ${colors.primary}
-
-;=====================================================
-;   bar/user
-;=====================================================
-[module/user]
-type = custom/text
-
-content            = ${env:USER}
-content-background = ${colors.primary}
-content-padding = ${variables.label-padding}
 
 ;=====================================================
 ;   module/i3
@@ -409,117 +220,61 @@ label-visible = %{B#414a59 F#2a313b}%{T2}%{T-}%{F-B-} %index% %{B#2a313b F#41
 label-urgent = %{B#cc575d F#2a313b}%{T2}%{T-}%{F-B-} %index% %{B#2a313b F#cc575d}%{T2}%{T-}%{F-B-}
 
 ;=====================================================
-;   module/mpd
-;=====================================================
-[module/mpd]
-type = internal/mpd
-inherit = section/base_right
-
-format-playing = <icon-prev><toggle><icon-next>
-format-paused = <icon-prev><toggle><icon-next>
-
-icon-play = %{T2}%{T-}
-icon-pause = %{T2}%{T-}
-icon-next = %{T2}%{T-}
-icon-prev = %{T2}%{T-}
-
-label-offline = mpd is offline
-
-;=====================================================
-;   module/mpd_title
-;=====================================================
-[module/mpd_title]
-type = internal/mpd
-inherit = section/base_right
-
-format-playing = <label-song>
-format-paused = <label-song>
-format-stopped = <label-song>
-
-label-song-maxlen = ${variables.label-maxlen}
-label-song-ellipsis = true
-label-song = %title%
-
-;=====================================================
 ;   module/cpu
 ;=====================================================
 [module/cpu]
 type = internal/cpu
-inherit = section/base_right
+inherit = section/base
 interval = 1
 
-label = %{T2}%{T-} %percentage:3%%
+label = %{T3}龍%{T-} %percentage%%
 
 ;=====================================================
 ;   module/memory
 ;=====================================================
 [module/memory]
 type = internal/memory
-inherit = section/base_right
-interval = 1
+inherit = section/base
+interval = 3
 
-label = %{T2}%{T-} %percentage_used:3%%
-
-;=====================================================
-;   module/wifi_name
-;=====================================================
-[module/wifi_name]
-type = internal/network
-interface = ${variables.wlan}
-
-format-connected-foreground = ${colors.foreground}
-format-connected-background = ${colors.primary}
-
-label-connected = %essid%
-label-connected-padding = ${variables.label-padding}
+label = %{T3}%{T-} %gb_used:2%
 
 ;=====================================================
 ;   module/wifi
 ;=====================================================
 [module/wifi]
 type = internal/network
-inherit = section/base_left
+inherit = section/base
 interface = ${variables.wlan}
 interval = 1
-accumulate-stats = true
+accumulate-stats = false
 
-label-connected = "%{T2}%{T-} %upspeed:8%   %{T2}%{T-} %downspeed:8%"
-
-;=====================================================
-;   module/eth_name
-;=====================================================
-[module/eth_name]
-type = internal/network
-interface = ${variables.eth}
-
-format-connected-foreground = ${colors.foreground}
-format-connected-background = ${colors.primary}
-
-label-connected = %local_ip%
-label-connected-padding = ${variables.label-padding}
+label-connected = "%{T3}直%{T-} %{T3}%{T-} %downspeed:% %{T3}%{T-} %upspeed:%"
+label-disconnected = "%{T3}%{F#1D1F21}直%{F- T-}"
 
 ;=====================================================
 ;   module/eth
 ;=====================================================
 [module/eth]
 type = internal/network
-inherit = section/base_left
+inherit = section/base
 interface = ${variables.eth}
 interval = 1
-accumulate-stats = true
+accumulate-stats = false
 
-label-connected = "%{T2}%{T-} %upspeed:8%   %{T2}%{T-} %downspeed:8%"
+label-connected = "%{T3}﴿%{T-}  %{T3}%{T-} %downspeed:% %{T3}%{T-} %upspeed:%"
+label-disconnected = "%{T3}%{F#1D1F21}﴿%{F- T-}"
 
 ;=====================================================
 ;   module/date
 ;=====================================================
 [module/date]
 type = internal/date
-inherit = section/base_right
+inherit = section/base
 interval = 1
-date = %d-%m-%Y
+date = %a %d %b
 
-label = %{T2}%{T-} %date%
+label = %{T3}%{T-} %date%
 
 ;=====================================================
 ;   module/time
@@ -530,10 +285,10 @@ interval = 1
 time = %H:%M
 
 format-prefix = %{T2}%{T-}
-format-prefix-foreground = ${colors.primary}
+format-prefix-foreground = ${colors.highlight}
 format-prefix-background = ${colors.background}
 format-foreground = ${colors.black}
-format-background = ${colors.primary}
+format-background = ${colors.highlight}
 
 label = " %time% "
 
@@ -542,52 +297,42 @@ label = " %time% "
 ;=====================================================
 [module/volume]
 type = internal/alsa
-inherit = section/base_right
+inherit = section/base
 interval = 1
 
-label-volume = %{T2}%{T-} %percentage:3%%
-label-muted = %{T2}%{T-} %percentage:3%%
+label-volume = %{T3}墳%{T-} %percentage:%%
+label-muted = %{T3}婢%{T-}
 
 ;=====================================================
 ;   module/battery
 ;=====================================================
 [module/battery]
 type = internal/battery
-inherit = section/base_right
+inherit = section/base
 battery = BAT0
 adapter = AC
 full-at = 95
 
 format-charging = <label-charging>
-label-charging = %{T2}%{T-} %percentage:3%%
+label-charging = %{T3}%{T-} %percentage:%%
 
 format-discharging = <label-discharging>
-label-discharging = %{T2}%{T-} %percentage:3%%
+label-discharging = %{T3}%{T-} %percentage:%%
 
 format-full = <label-full>
-label-full = %{T2}%{T-} %percentage:3%%
+label-full = %{T3}%{T-} %percentage:%%
 
 ;=====================================================
 ;   module/temperature
 ;=====================================================
 [module/temperature]
 type = internal/temperature
-inherit = section/base_right
+inherit = section/base
 thermal-zone = 0
-warn-temperature = 70
+warn-temperature = 50
 
-label = %{T2}%{T-} %temperature-c:3%
-label-warn = %{T2}%{T-} %temperature-c:3%
+label = %{T3}%{T-} %temperature-c%
+label-warn = %{T3}%{T-} %temperature-c%
 
-;=====================================================
-;   settings
-;=====================================================
-[settings]
-screenchange-reload = true
 
-;=====================================================
-;   global/wm
-;=====================================================
-[global/wm]
-margin-top = 0
-margin-bottom = 0
+

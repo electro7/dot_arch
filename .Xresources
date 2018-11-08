@@ -32,6 +32,7 @@ Xcursor.theme:	 Neutral
 URxvt.colorBD: #B5BD68
 URxvt.colorIT: #B294BB
 URxvt.colorUL: #81A2BE
+
 ! Fuentes
 ! Para los caracteres especiales de la línea de powerline es necesario
 ! una fuente powerline. Inconsolata for powerline los tienes, pero solo
@@ -40,10 +41,10 @@ URxvt.colorUL: #81A2BE
 ! funcionan. :)
 
 URxvt.letterSpace: -1
-URxvt*font: xft:Inconsolata Nerd Font Mono:size=12, -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
-URxvt*boldFont: xft:Inconsolata Nerd Font Mono:size=12, -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
-URxvt*italicFont: xft:Inconsolata Nerd Font Mono:size=12, -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
-URxvt*bolditalicFont: xft:Inconsolata Nerd Font Mono:size=12, -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
+URxvt*font: xft:Inconsolata Nerd Font Mono:pixelsize=16
+URxvt*boldFont: xft:Inconsolata Nerd Font Mono:pixelsize=16
+URxvt*italicFont: xft:Inconsolata Nerd Font Mono:pixelsize=16
+URxvt*bolditalicFont: xft:Inconsolata Nerd Font Mono:pixelsize=16
 
 !URxvt.letterSpace: -2
 !URxvt.font: xft:Inconsolata:size=12:hintstyle=hintfull, -xos4-terminesspowerline-medium-r-normal--14-140-72-72-c-80-iso10646-1

@@ -55,5 +55,9 @@ exec /usr/lib/notification-daemon/notification-daemon &
 # Cambia el Wheel Left (6) por el Middle click (2)
 #xinput set-button-map 10 1 2 3 4 5 2 7 8 9
 
+# Bar -> Parche para que se muestre polybar en el arranque de i3
+# Sin el "sleep" solo se muestra con la primera ventana ¿?
+(sleep 3; exec ~./config/polybar/launch.sh) &
+
 # Gestor de ventanas
 exec i3
