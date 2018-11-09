@@ -214,12 +214,22 @@ content-foreground = ${colors.section}
 content-background = ${colors.background}
 
 ;=====================================================
+;   module/lbh
+;=====================================================
+[module/lbh]
+type = custom/text
+
+content = %{T2}%{T-}
+content-foreground = ${colors.background}
+content-background = ${colors.highlight}
+
+;=====================================================
 ;   module/ws_icon
 ;=====================================================
 [module/ws_icon]
 type = custom/text
 
-content = %{T3} 拓  %{T-}
+content = %{T3} 拓  %{T-}
 content-foreground = ${colors.background}
 content-background = ${colors.highlight}
 
@@ -290,7 +300,7 @@ format-padding = 1
 
 label = %title%
 label-maxlen = 60
-label-empty = 
+label-empty =
 
 ;=====================================================
 ;   module/cpu
