@@ -335,7 +335,8 @@ let g:promptline_theme = 'air_e7'
 " NERDTree
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeQuitOnOpen = 1
-
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 "}}}
 " Autocommands {{{
 " -----------------------------------------------------------------------------

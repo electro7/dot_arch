@@ -12,4 +12,8 @@ $CMD -Sy &>/dev/null
 SYNC=`${CMD} -Qu`
 NUM=`echo $SYNC | grep -o " -> " | wc -l`
 
-echo $NUM
+if [ $NUM -eq 0 ]; then
+	echo ""
+else
+	echo $NUM
+fi

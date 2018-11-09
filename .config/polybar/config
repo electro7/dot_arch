@@ -20,6 +20,7 @@
 foreground = ${xrdb:foreground}
 background = ${xrdb:background}
 highlight = ${xrdb:color10}
+highback = ${xrdb:color2}
 warn = ${xrdb:color1}
 alert = ${xrdb:color3}
 section = ${xrdb:color8}
@@ -79,9 +80,9 @@ font-0 = ${fonts.font-0}
 font-1 = ${fonts.font-1}
 font-2 = ${fonts.font-2}
 
-modules-left = i3 ldp lpd
+modules-left = ws_icon i3 lhb lbs ti_icon lsb title
 modules-center =
-modules-right = cpu temperature memory wifi eth volume battery date time
+modules-right = updates cpu temperature memory wifi eth volume battery date time
 
 ;tray-position = right
 ;tray-detached = false
@@ -183,24 +184,54 @@ label-discharging-padding = ${variables.label-padding}
 label-full-padding = ${variables.label-padding}
 
 ;=====================================================
-;   module/ldp
+;   module/lhb
 ;=====================================================
-[module/ldp]
-type = custom/text
-
-content = %{T2}%{T-}
-content-foreground = ${colors.background}
-content-background = ${colors.highlight}
-
-;=====================================================
-;   module/lpd
-;=====================================================
-[module/lpd]
+[module/lhb]
 type = custom/text
 
 content = %{T2}%{T-}
 content-foreground = ${colors.highlight}
 content-background = ${colors.background}
+
+;=====================================================
+;   module/lbs
+;=====================================================
+[module/lbs]
+type = custom/text
+
+content = %{T2}%{T-}
+content-foreground = ${colors.background}
+content-background = ${colors.section}
+
+;=====================================================
+;   module/lsb
+;=====================================================
+[module/lsb]
+type = custom/text
+
+content = %{T2}%{T-}
+content-foreground = ${colors.section}
+content-background = ${colors.background}
+
+;=====================================================
+;   module/ws_icon
+;=====================================================
+[module/ws_icon]
+type = custom/text
+
+content = %{T3} 拓  %{T-}
+content-foreground = ${colors.background}
+content-background = ${colors.highlight}
+
+;=====================================================
+;   module/ti_icon
+;=====================================================
+[module/ti_icon]
+type = custom/text
+
+content = %{T3} 类 %{T-}
+content-foreground = ${colors.highlight}
+content-background = ${colors.section}
 
 ;=====================================================
 ;   module/i3
@@ -211,13 +242,55 @@ index-sort = true
 wrapping-scroll = true
 strip-wsnumbers = true
 pin-workspaces = true
+fuzzy-match = true
 
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 0;
+
+format-background = ${colors.highlight}
+format-foreground = ${colors.background}
+
+label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.highlight}
+label-unfocused-foreground = ${colors.highback}
+label-unfocused-background = ${colors.highlight}
+label-visible-foreground = ${colors.highback}
+label-visible-background = ${colors.highlight}
+label-urgent-foreground = ${colors.warn}
+label-urgent-background = ${colors.highlight}
+
+label-focused = %{T2}%icon% %{T-}
+label-unfocused = %{T2}%icon% %{T-}
+label-visible = %{T2}%icon% %{T-}
+label-urgent = %{T2}%icon% %{T-}
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = ${colors.highlight}
+label-mode-foreground = ${colors.warn}
+
+;=====================================================
+;   module/title
+;=====================================================
+[module/title]
+type = internal/xwindow
+
+format = <label>
 format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-padding = 1
 
-label-focused = %{B#5294e2 F#2a313b}%{T2}%{T-}%{F-B-} %index% %{B#2a313b F#5294e2}%{T2}%{T-}%{F-B-}
-label-unfocused = %{T2} %{T-} %index% %{T2} %{T-}
-label-visible = %{B#414a59 F#2a313b}%{T2}%{T-}%{F-B-} %index% %{B#2a313b F#414a59}%{T2}%{T-}%{F-B-}
-label-urgent = %{B#cc575d F#2a313b}%{T2}%{T-}%{F-B-} %index% %{B#2a313b F#cc575d}%{T2}%{T-}%{F-B-}
+label = %title%
+label-maxlen = 60
+label-empty = 
 
 ;=====================================================
 ;   module/cpu
@@ -334,5 +407,24 @@ warn-temperature = 50
 label = %{T3}%{T-} %temperature-c%
 label-warn = %{T3}%{T-} %temperature-c%
 
+;=====================================================
+;   module/updates
+;=====================================================
+[module/updates]
+type = custom/script
+inherit = section/base
 
+format-prefix = %{T2}%{T-}
+format-prefix-foreground = ${colors.warn}
+format-prefix-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-background = ${colors.warn}
+format-suffix = %{T2}%{T-}
+format-suffix-foreground = ${colors.background}
+format-suffix-background = ${colors.warn}
+label-padding = ${variables.label-padding}
+
+exec = ~/bin/arch_updates.sh
+interval = 3600
+label = %{T3}%{T-} %output%
 

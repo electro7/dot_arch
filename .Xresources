@@ -72,7 +72,7 @@ URxvt*saveLines: 1024
 URxvt*mouseWheelScrollPage: true
 ! Extensions ~/.urxvt./ext
 URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select
-! Clipboard
+! Clipboard -> Ctr+Alt+C/V
 URxvt.keysym.C-S-C: perl:clipboard:copy
 URxvt.keysym.C-S-V: perl:clipboard:paste
 URxvt.keysym.C-S-W: perl:clipboard:paste_escaped
