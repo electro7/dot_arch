@@ -47,7 +47,8 @@ fc-cache -v
 # Notificador
 # Paquete notification-daemon
 # Probar con notify-send (paquete libnotify-bim)
-exec /usr/lib/notification-daemon/notification-daemon &
+#exec /usr/lib/notification-daemon/notification-daemon &
+exec dunst -config ~./config/dunst/dunstrc &
 
 # Remapear los botones del ratón extendido
 # Paquete xinput

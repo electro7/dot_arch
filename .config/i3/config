@@ -85,8 +85,11 @@ bindsym $mod+Mod1+m exec ~/.config/i3/i3_focus_or_run.sh -c firefox firefox
 bindsym $mod+Mod1+v exec ~/.config/i3/i3_focus_or_run.sh -c VirtualBox VirtualBox
 # mldonky (mod+alt+t)
 bindsym $mod+Mod1+t exec ~/.config/i3/i3_focus_or_run.sh -t mldonkey ~/bin/terminal mldonkey
-# start dmenu (mod+x)
-bindsym $mod+x exec dmenu_run -fn "$ft" -nb "$back" -nf "$white" -sb "$yellow" -sf "$black"
+# start dmenu/rofi (mod+x)
+#bindsym $mod+x exec dmenu_run -fn "$ft" -nb "$back" -nf "$white" -sb "$yellow" -sf "$black"
+bindsym $mod+x exec rofi -show run
+# start rofi window list (mod+w)
+bindsym $mod+w exec rofi -show window
 
 # Laptop keys
 bindsym XF86AudioRaiseVolume exec "amixer sset Master 5%+"
