@@ -82,7 +82,7 @@ font-2 = ${fonts.font-2}
 
 modules-left = ws_icon i3 lhb lbs ti_icon lsb title
 modules-center =
-modules-right = updates cpu temperature memory wifi eth volume battery date time
+modules-right = updates cpu temperature memory wifi eth volume backlight battery date time
 
 ;tray-position = right
 ;tray-detached = false
@@ -385,6 +385,19 @@ interval = 1
 
 label-volume = %{T3}墳%{T-} %percentage:%%
 label-muted = %{T3}婢%{T-}
+
+;=====================================================
+;   module/backlight
+;=====================================================
+[module/backlight]
+type = internal/xbacklight
+inherit = section/base
+
+;output = eDP1
+enable-scroll = false
+
+format = <label>
+label = %{T3}%{T-} %percentage:%%
 
 ;=====================================================
 ;   module/battery
