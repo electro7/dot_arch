@@ -73,6 +73,8 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvt
 # GTK Theme sector (mod+alt+a)
 bindsym $mod+Mod1+a exec lxappearance
+# QT5 Theme sector (mod+alt+q)
+bindsym $mod+Mod1+q exec qt5ct
 # Color picker (mod+alt+g)
 bindsym $mod+Mod1+g exec gcolor2
 # htop (mod+alt+h)
@@ -120,6 +122,7 @@ for_window [class="(?i)feh"] floating enable
 for_window [class="(?i)gcolor2"] floating enable
 #for_window [class="(?i)gucharmap"] floating enable
 for_window [class="(?i)lxappearance"] floating enable
+for_window [class="(?i)qt5ct"] floating enable
 for_window [instance="(?i)TeamViewer.exe"] floating enable
 for_window [class="(?i)VirtualBox"] floating enable
 for_window [class="(?i)mplayer2"] floating enable

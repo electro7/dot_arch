@@ -448,6 +448,6 @@ format-suffix-background = ${colors.warn}
 label-padding = ${variables.label-padding}
 
 exec = ~/bin/arch_updates.sh
-interval = 3600
+interval = 600
 label = %{T3}%{T-} %output%
 
