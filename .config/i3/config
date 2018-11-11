@@ -111,10 +111,6 @@ assign [class="(?i)Navigator"] 2:www
 assign [class="(?i)VirtualBox"] 3:vbox
 assign [instance="(?i)TeamViewer.exe"] 4:vnc
 assign [class="Google-chrome"] 2:www
-assign [class="vlc"] 5:vid
-assign [class="mpv"] 6:vid
-assign [class="xv/mplayer"] 5:vid
-assign [class="Gimp"] 6:img
 #assign [class="Zathura"] → 5
 
 # Layout

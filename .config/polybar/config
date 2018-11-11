@@ -68,7 +68,7 @@ margin-bottom = 0
 monitor = ${env:MONITOR}
 height = ${variables.bar-height}
 bottom = false
-fixed-center = true
+fixed-center = false
 
 border-bottom-size = ${variables.bar-border-size}
 border-color = ${colors.black}
@@ -425,7 +425,7 @@ label-full = %{T3}%{T-} %percentage:%%
 type = internal/temperature
 inherit = section/base
 thermal-zone = 0
-warn-temperature = 50
+warn-temperature = 70
 
 label = %{T3}%{T-} %temperature-c%
 label-warn = %{T3}%{T-} %temperature-c%
