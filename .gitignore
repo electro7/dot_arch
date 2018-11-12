@@ -55,7 +55,6 @@ music
 .mplayer/*
 .ncmpcpp/*.log
 .pki/*
-.profile
 .pulse/*
 .pulse*
 .private/*

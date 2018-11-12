@@ -27,6 +27,9 @@ font $ft
 
 new_window pixel 2
 new_float pixel 2
+floating_minimum_size 400x300
+floating_maximum_size -1x-1
+focus_follows_mouse no
 
 # Hybrid colors
 #set $back               #1d1F21
@@ -121,9 +124,8 @@ for_window [class="(?i)lxappearance"] floating enable
 for_window [class="(?i)qt5ct"] floating enable
 for_window [instance="(?i)TeamViewer.exe"] floating enable
 for_window [class="(?i)VirtualBox"] floating enable
-for_window [class="(?i)mplayer2"] floating enable
-for_window [instance="(?i)mplayer2"] floating enable
 for_window [class="(?i)mpv"] floating enable
+for_window [class="(?i)VirtualBox Machine"] resize set 1024 768
 for_window [workspace=10] floating enable
 
 #...........
@@ -147,13 +149,9 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation (mod+h)
 bindsym $mod+h split h
-bindsym $mod+Mod1+Left split h
-bindsym $mod+Mod1+Right split h
 
 # split in vertical orientation (mod+v)
 bindsym $mod+v split v
-bindsym $mod+Mod1+Up split v
-bindsym $mod+Mod1+Down split v
 
 # enter fullscreen mode for the focused container (mod+f)
 bindsym $mod+f fullscreen
@@ -216,16 +214,16 @@ mode "resize" {
   # Pressing right will grow the window’s width.
   # Pressing up will shrink the window’s height.
   # Pressing down will grow the window’s height.
-  bindsym d resize shrink width 10 px or 10 ppt
-  bindsym w resize grow height 10 px or 10 ppt
-  bindsym s resize shrink height 10 px or 10 ppt
-  bindsym a resize grow width 10 px or 10 ppt
+  bindsym a resize shrink width 10 px or 10 ppt
+  bindsym s resize grow height 10 px or 10 ppt
+  bindsym w resize shrink height 10 px or 10 ppt
+  bindsym d resize grow width 10 px or 10 ppt
 
   # same bindings, but for the arrow keys
-  bindsym Right resize shrink width 1 px or 1 ppt
-  bindsym Up resize grow height 1 px or 1 ppt
-  bindsym Down resize shrink height 1 px or 1 ppt
-  bindsym Left resize grow width 1 px or 1 ppt
+  bindsym Left resize shrink width 1 px or 1 ppt
+  bindsym Down resize grow height 1 px or 1 ppt
+  bindsym Up resize shrink height 1 px or 1 ppt
+  bindsym Right resize grow width 1 px or 1 ppt
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"

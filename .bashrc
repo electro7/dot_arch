@@ -99,7 +99,7 @@ export PATH="$PATH:$HOME/bin"
 # Por defecto.
 export EDITOR="vim"
 export BROWSER="firefox"
-#export QT_STYLE_OVERRIDE=adwaita-dark
+export QT_STYLE_OVERRIDE=gtk
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 #----------------------------------------------------------------------#
