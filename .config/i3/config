@@ -92,7 +92,7 @@ bindsym $mod+Mod1+v exec ~/.config/i3/i3_focus_or_run.sh -c VirtualBox VirtualBo
 bindsym $mod+Mod1+t exec ~/.config/i3/i3_focus_or_run.sh -t mldonkey ~/bin/terminal mldonkey
 # start dmenu/rofi (mod+x)
 #bindsym $mod+x exec dmenu_run -fn "$ft" -nb "$back" -nf "$white" -sb "$yellow" -sf "$black"
-bindsym $mod+x exec rofi -show run
+bindsym $mod+x exec bash -i -c "rofi -show run"
 # start rofi window list (mod+w)
 bindsym $mod+w exec rofi -show window
 
@@ -114,6 +114,7 @@ assign [class="(?i)Navigator"] 2:www
 assign [class="(?i)VirtualBox"] 3:vbox
 assign [instance="(?i)TeamViewer.exe"] 4:vnc
 assign [class="Google-chrome"] 2:www
+#assign [class="(?i)vlc"] 9
 #assign [class="Zathura"] → 5
 
 # Layout
@@ -125,6 +126,7 @@ for_window [class="(?i)qt5ct"] floating enable
 for_window [instance="(?i)TeamViewer.exe"] floating enable
 for_window [class="(?i)VirtualBox"] floating enable
 for_window [class="(?i)mpv"] floating enable
+for_window [class="(?i)vlc"] floating enable
 for_window [class="(?i)VirtualBox Machine"] resize set 1024 768
 for_window [workspace=10] floating enable
 

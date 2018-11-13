@@ -99,8 +99,9 @@ export PATH="$PATH:$HOME/bin"
 # Por defecto.
 export EDITOR="vim"
 export BROWSER="firefox"
-export QT_STYLE_OVERRIDE=gtk
+#export QT_STYLE_OVERRIDE=GTK
 export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_AUTO_SCREEN_SCALE_FACTOR=0 
 
 #----------------------------------------------------------------------#
 # Alias
