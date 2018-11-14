@@ -963,6 +963,9 @@ PAQUETES EN ARCHLINUX					 *pacman* *arch*
 - pacman -Qu~
   Lista paquetes para actualizar.
 
+- pacman -Scc~
+  Limpia la cache.
+
 Archlinux tiene un sistema llamado AUR donde los usuarios pueden aportar
 paquetes. Se descargan con "git clone", donde se baja un fichero llamado
 "PKGBUILD" que se compila e instala con "makepkg -si". Para manejar este

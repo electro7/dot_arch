@@ -48,7 +48,7 @@ fc-cache -v
 # Paquete notification-daemon
 # Probar con notify-send (paquete libnotify-bim)
 #exec /usr/lib/notification-daemon/notification-daemon &
-exec dunst -config ~./config/dunst/dunstrc &
+exec dunst -config ~.config/dunst/dunstrc &
 
 # Remapear los botones del ratón extendido
 # Paquete xinput
@@ -58,7 +58,7 @@ exec dunst -config ~./config/dunst/dunstrc &
 
 # Bar -> Parche para que se muestre polybar en el arranque de i3
 # Sin el "sleep" solo se muestra con la primera ventana ¿?
-(sleep 3; exec ~./config/polybar/launch.sh) &
+#(sleep 3; exec ~./config/polybar/launch.sh) &
 
 # Gestor de ventanas
 exec i3

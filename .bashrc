@@ -134,6 +134,7 @@ alias ..='cd ..'
 alias 'cd..'='cd ..'
 alias df="df -h"
 alias more='less'
+alias du="dh -h"
 
 # Alias para el su (root)
 alias reboot="sudo /sbin/reboot"
