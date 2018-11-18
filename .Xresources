@@ -22,6 +22,7 @@ Xcursor.theme:	 Neutral
 !#include ".config/termcolours/hybrid"
 !#include ".config/termcolours/base16-solarized.light"
 #include ".config/termcolours/hybrid_e7"
+!#include ".config/termcolours/onedark"
 !#include ".config/termcolours/s3r0"
 ##include ".config/termcolours/nix_e7"
 

@@ -47,6 +47,7 @@ call vundle#begin()
 	Plugin 'terryma/vim-multiple-cursors'		" Multiple cursors work
 	Plugin 'edkolev/promptline.vim'				" Prompt generator for bash
 	Plugin 'altercation/vim-colors-solarized.git'	" Solarized theme
+	Plugin 'joshdick/onedark.vim.git'			" OneDark theme
 	"Plugin 'nathanaelkane/vim-indent-guides.git'	" Show tab/space guides
 
 	" All of your Plugins must be added before the following line
