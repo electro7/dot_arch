@@ -88,6 +88,8 @@ bindsym $mod+Mod1+i exec ~/.config/i3/i3_focus_or_run.sh -t weechat ~/bin/termin
 bindsym $mod+Mod1+m exec ~/.config/i3/i3_focus_or_run.sh -c firefox firefox
 # virtualbox (mod+alt+v)
 bindsym $mod+Mod1+v exec ~/.config/i3/i3_focus_or_run.sh -c VirtualBox VirtualBox
+# thunar (mod+alt+e)
+bindsym $mod+Mod1+e exec ~/.config/i3/i3_focus_or_run.sh -c Thunar thunar
 # mldonky (mod+alt+t)
 bindsym $mod+Mod1+t exec ~/.config/i3/i3_focus_or_run.sh -t mldonkey ~/bin/terminal mldonkey
 # start dmenu/rofi (mod+x)
