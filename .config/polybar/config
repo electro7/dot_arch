@@ -45,8 +45,8 @@ wlan=wlan0
 ;=====================================================
 [fonts]
 font-0 = "Inconsolata Nerd Font:size=12:antialias=true;2"
-font-1 = "Inconsolata Nerd Font:size=14:antialias=true;3"
-font-2 = "Inconsolata Nerd Font:size=12:antialias=true;2"
+font-1 = "Inconsolata for Powerline:size=14:antialias=true;3"
+font-2 = "Inconsolata Nerd Font:size=14:antialias=true;3"
 
 ;=====================================================
 ;   settings
@@ -277,10 +277,10 @@ label-visible-background = ${colors.highlight}
 label-urgent-foreground = ${colors.warn}
 label-urgent-background = ${colors.highlight}
 
-label-focused = %{T2}%icon% %{T-}
-label-unfocused = %{T2}%icon% %{T-}
-label-visible = %{T2}%icon% %{T-}
-label-urgent = %{T2}%icon% %{T-}
+label-focused = %{T3}%icon% %{T-}
+label-unfocused = %{T3}%icon% %{T-}
+label-visible = %{T3}%icon% %{T-}
+label-urgent = %{T3}%icon% %{T-}
 
 label-mode = %mode%
 label-mode-padding = 2
@@ -310,7 +310,7 @@ type = internal/cpu
 inherit = section/base
 interval = 1
 
-label = %{T3}龍%{T-} %percentage%%
+label = %{T1}龍%{T-} %percentage%%
 
 ;=====================================================
 ;   module/memory
@@ -320,7 +320,7 @@ type = internal/memory
 inherit = section/base
 interval = 3
 
-label = %{T3}%{T-} %gb_used:2%
+label = %{T1}%{T-} %gb_used:2%
 
 ;=====================================================
 ;   module/wifi
@@ -332,8 +332,8 @@ interface = ${variables.wlan}
 interval = 1
 accumulate-stats = false
 
-label-connected = "%{T3}直%{T-} %{T3}%{T-} %downspeed:% %{T3}%{T-} %upspeed:%"
-label-disconnected = "%{T3}%{F#1D1F21}直%{F- T-}"
+label-connected = "%{T1}直%{T-} %{T3}%{T-} %downspeed:% %{T3}%{T-} %upspeed:%"
+label-disconnected = "%{T1}%{F#1D1F21}直%{F- T-}"
 
 ;=====================================================
 ;   module/eth
@@ -345,8 +345,8 @@ interface = ${variables.eth}
 interval = 1
 accumulate-stats = false
 
-label-connected = "%{T3}﴿%{T-}  %{T3}%{T-} %downspeed:% %{T3}%{T-} %upspeed:%"
-label-disconnected = "%{T3}%{F#1D1F21}﴿%{F- T-}"
+label-connected = "%{T1}﴿%{T-}  %{T3}%{T-} %downspeed:% %{T3}%{T-} %upspeed:%"
+label-disconnected = "%{T1}%{F#1D1F21}﴿%{F- T-}"
 
 ;=====================================================
 ;   module/date
@@ -357,7 +357,7 @@ inherit = section/base
 interval = 1
 date = %a %d %b
 
-label = %{T3}%{T-} %date%
+label = %{T1}%{T-} %date%
 
 ;=====================================================
 ;   module/time
@@ -383,8 +383,8 @@ type = internal/alsa
 inherit = section/base
 interval = 1
 
-label-volume = %{T3}墳%{T-} %percentage:%%
-label-muted = %{T3}婢%{T-}
+label-volume = %{T1}墳%{T-} %percentage:%%
+label-muted = %{T1}婢%{T-}
 
 ;=====================================================
 ;   module/backlight
@@ -397,7 +397,7 @@ inherit = section/base
 enable-scroll = false
 
 format = <label>
-label = %{T3}%{T-} %percentage:%%
+label = %{T1}%{T-} %percentage:%%
 
 ;=====================================================
 ;   module/battery
@@ -410,13 +410,13 @@ adapter = AC
 full-at = 95
 
 format-charging = <label-charging>
-label-charging = %{T3}%{T-} %percentage:%%
+label-charging = %{T1}%{T-} %percentage:%%
 
 format-discharging = <label-discharging>
-label-discharging = %{T3}%{T-} %percentage:%%
+label-discharging = %{T1}%{T-} %percentage:%%
 
 format-full = <label-full>
-label-full = %{T3}%{T-} %percentage:%%
+label-full = %{T1}%{T-} %percentage:%%
 
 ;=====================================================
 ;   module/temperature
@@ -427,8 +427,8 @@ inherit = section/base
 thermal-zone = 0
 warn-temperature = 70
 
-label = %{T3}%{T-} %temperature-c%
-label-warn = %{T3}%{T-} %temperature-c%
+label = %{T1}%{T-} %temperature-c%
+label-warn = %{T1}%{T-} %temperature-c%
 
 ;=====================================================
 ;   module/updates
@@ -449,5 +449,5 @@ label-padding = ${variables.label-padding}
 
 exec = ~/bin/arch_updates.sh
 interval = 600
-label = %{T3}%{T-} %output%
+label = %{T1}%{T-} %output%
 
