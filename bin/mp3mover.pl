@@ -37,8 +37,8 @@ if ( -r "$config_file" ) {
 }
 
 #setting default options if configuration file didn't specify them
-$FILEMASK='%r - %a - %n - %t' unless ( $FILEMASK );
-$DIRECTORYMASK='%r/%a/' unless ( $DIRECTORYMASK );
+$FILEMASK='%n_-_%r_-_%t' unless ( $FILEMASK );
+$DIRECTORYMASK='%r_-_%a' unless ( $DIRECTORYMASK );
 $ID3TITLEMASK='%n - %t' unless ( $ID3TITLEMASK );
 
 getopts("a:c:hd:efgi:lm:pr:s:tuwxyACDI:M:RSTX",\%option);

@@ -19,7 +19,7 @@ visualizer_color = "green"
 
 # Playlist
 song_columns_list_format = "(4f)[white]{n} (25)[cyan]{a} (30)[blue]{b} (40)[default]{t|f} (6f)[white]{l}"
-now_playing_prefix = "$b→ "
+now_playing_prefix = "$b"
 now_playing_suffix = "$/b"
 playlist_display_mode = "columns" (classic/columns)
 autocenter_mode = "yes"
