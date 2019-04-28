@@ -83,7 +83,7 @@ font-2 = ${fonts.font-2}
 
 modules-left = ws_icon i3 lhb lbs ti_icon lsb title
 modules-center =
-modules-right = updates cpu temperature memory wifi eth volume backlight battery date time
+modules-right = updates cpu temperature memory wifi eth bluetooth volume backlight battery date time
 
 ;tray-position = right
 ;tray-detached = false
@@ -451,4 +451,15 @@ label-padding = ${variables.label-padding}
 exec = ~/bin/arch_updates.sh
 interval = 600
 label = %{T1}%{T-} %output%
+
+;=====================================================
+;   module/bluetooth
+;=====================================================
+[module/bluetooth]
+type = custom/script
+inherit = section/base
+
+exec = ~/.config/polybar/bluetooth.sh
+interval = 10
+label = %{T1}%output%%{T-}
 

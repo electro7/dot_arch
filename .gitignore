@@ -21,6 +21,7 @@ backup/*
 doc/*
 downloads/*
 extra
+.esd_auth
 .fehbg
 .fetchmailrc
 .fltk/*

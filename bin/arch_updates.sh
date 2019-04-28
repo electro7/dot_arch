@@ -9,7 +9,7 @@ CMD=yay
 
 $CMD -Sy &>/dev/null
 
-SYNC=`${CMD} -Qu`
+SYNC=`${CMD} -Qu 2>/dev/null`
 NUM=`echo $SYNC | grep -o " -> " | wc -l`
 
 if [ $NUM -eq 0 ]; then
