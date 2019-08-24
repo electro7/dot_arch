@@ -24,19 +24,19 @@ CONTENIDO                                                 *chuleta_contenido*
   - Ordenar MP3                                     |chuleta_mp3|
   - Fuentes, temas, iconos                          |chuleta_fuentes_temas_gtk|
   - Drivers NVIDIA                                  |chuleta_nvidia|
-  - Wireless	                                    |chuleta_wireless|
+  - Wireless                                        |chuleta_wireless|
   - Versionitis con GIT                             |chuleta_git|
   - Instalando fuentes                              |chuleta_checkinstall|
   - Instalando Linux en SSD                         |disco_ssd|
   - Weechat + BitlBee (IRC + Mensajería)            |weechat_bitlbee|
   - Samba fácil                                     |samba_facil|
   - MPD y ncmpcpp                                   |mpd_ncmpcpp|
-  - Systemd en Debian				    |systemd|
-  - Servidor DLNA en Debian			    |dlna|
-  - systemctl en archlinux			    |systemctl| |arch|
-  - Red en archlinux				    |netctl| |arch|
-  - Paquetes archlinux				    |pacman| |arch|
-  - Bluetooth archlinux				    |bluez| |arch|
+  - Systemd en Debian                               |systemd|
+  - Servidor DLNA en Debian                         |dlna|
+  - systemctl en archlinux                          |systemctl| |arch|
+  - Red en archlinux                                |netctl| |arch|
+  - Paquetes archlinux                              |pacman| |arch|
+  - Bluetooth archlinux                             |bluez| |arch|
 
 ==============================================================================
 ==============================================================================
@@ -528,7 +528,7 @@ DRIVERS NVIDIA                                               *chuleta_nvidia*
 - Relanzar el gdm/lightdm
 
 ==============================================================================
-WIRELESS						  *chuleta_wireless*
+WIRELESS                                                  *chuleta_wireless*
 
 ----------------------------------------------------------------------------
 EN MANZANITA
@@ -813,7 +813,7 @@ Instalar reproductor de música para consola:
   - El fichero de configuración va en {.ncmpcpp/config}
 
 ==============================================================================
-SYSTEMD		                                                 *systemd*
+SYSTEMD                                                          *systemd*
 
 Al final han quitado nuestro querido systemv en debian y han puesto en
 systemd.
@@ -828,7 +828,7 @@ Cosillas:
   "systemctl set-default graphical.target"
 
 ==============================================================================
-SERVIDOR DLNA							 *dlna*
+SERVIDOR DLNA                                                    *dlna*
 
 Sirve para compartir multimedia para aplicaciones clientes DLNA y uPNP, para
 el chromecast, por ejemplo:
@@ -851,7 +851,7 @@ el chromecast, por ejemplo:
 - Listo. Se puede ver el estado desde web al puerto 8200 del servidor.
 
 ==============================================================================
-VIRTUALBOX CONSOLA						 *virtualbox*
+VIRTUALBOX CONSOLA                                               *virtualbox*
 
 Se hace la administración desde "VboxManage":
 
@@ -880,7 +880,7 @@ Se hace la administración desde "VboxManage":
   puerto se puede cambiar con --vrderproperty "TCP/Ports|Address=<value>"
 
 ==============================================================================
-SYSTEMCTL ARCHLINUX					 *systemctl* *arch*
+SYSTEMCTL ARCHLINUX                                      *systemctl* *arch*
 
 Activa "servicios" (demonios):
 
@@ -900,7 +900,7 @@ Activa "servicios" (demonios):
 <
 
 ==============================================================================
-RED EN ARCHLINUX					 *netctl* *arch*
+RED EN ARCHLINUX                                         *netctl* *arch*
 
 Para el manejo de la red en archlinux, nada mejor que el netctl, tanto para
 wifi (wlan) como por cable (eth).
@@ -944,7 +944,7 @@ Uso básico:
   Muestra el estado de la conexión wifi.
 
 ==============================================================================
-PAQUETES EN ARCHLINUX					 *pacman* *arch*
+PAQUETES EN ARCHLINUX                                    *pacman* *arch*
 
 - pacman -S <paquete>~
   Instalar un paquete.
@@ -980,7 +980,7 @@ Ejemplos:
   Lista paquetes para actualizar.
 
 ==============================================================================
-BLUETOOTH EN ARCHLINUX					 *bluez* *arch*
+BLUETOOTH EN ARCHLINUX                                   *bluez* *arch*
 
 - Instalar los paquetes "bluez", "bluez-libs" y "bluez-utils".
 - El servicio no arranca por defecto. Arrancarlo con "sudo systemctl start
@@ -1004,7 +1004,7 @@ BLUETOOTH EN ARCHLINUX					 *bluez* *arch*
     Conecta o desconecta con dispositivo.
 
 - Para hacer funcionar cascos bluetooth hay que instalar el "pulseaudio",
-  "pulseaudio-alsa" y "pulseaudio-bluetooth". 
+  "pulseaudio-alsa" y "pulseaudio-bluetooth".
 - El servicio de pulseaudio corre en systemctl solo para el usuario.
   "systemctl --user start pulseaudio.service" lo arranca.
 - "pulsemixer" es un buen mixer para consola.
