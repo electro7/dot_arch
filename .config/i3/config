@@ -61,7 +61,16 @@ client.urgent           $red        $red        $black      $red
 client.background       $back
 
 #..........
-# Applications
+# Gaps
+#..........
+
+for_window [class=".*"] border pixel 1
+gaps inner 6
+smart_gaps on
+smart_borders on
+
+#..........
+# Apps
 #..........
 
 # Principal mod key (Super = Win key)
