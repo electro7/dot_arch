@@ -879,7 +879,7 @@ Se hace la administración desde "VboxManage":
   Activa el escritorio remoto (mstsc) en el puerto 3389 para la máquina. El
   puerto se puede cambiar con --vrderproperty "TCP/Ports|Address=<value>"
 
-==============================================================================
+==============================================================================
 SYSTEMCTL ARCHLINUX                                      *systemctl* *arch*
 
 Activa "servicios" (demonios):
@@ -1009,5 +1009,21 @@ BLUETOOTH EN ARCHLINUX                                   *bluez* *arch*
   "systemctl --user start pulseaudio.service" lo arranca.
 - "pulsemixer" es un buen mixer para consola.
 
+Tethering a través de bluetooth de Android~
 
-vim:tw=78:ts=8:wrap:ft=help:norl
+    - Conectar por Bluetooth el PC con el móvil.
+    - En Android activar compartir conexión por Bluetooth. Redes e e internet ->
+      Zona Wifi -> Compartir conexión por Bluetooth.
+    - Ejecutar el siguiente comando como root:
+>
+	dbus-send --system --type=method_call
+	--dest=org.bluez /org/bluez/hci0/dev_18_01_F1_4C_91_AD
+	org.bluez.Network1.Connect string:'nap'
+<
+	Cambiar dev_"" por la mac del Bluetooth del movil.
+
+    - Se crea un enlace llamado <bnet0>.
+    - Darle IP por dhcp con "dhcpcd bnep0".
+
+
+vim:tw=78:ts=8:nowrap:ft=help:norl

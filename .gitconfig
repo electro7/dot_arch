@@ -19,6 +19,7 @@
   editor = vim
   excludesfile = /home/electro7/.gitignore_global
 	autocrlf = input
+	safecrlf = false
 [github]
   user = electro7
 [diff]

@@ -1,9 +1,9 @@
 " ~/.vimrc		-> linux $VIM/.vimrc	-> win
 "
-" Archivo de configuración del editor VIM (er mejo!)
+" Archivo de configuraciÃ³n del editor VIM (er mejo!)
 "
 " Trato que funcione tanto en WIN (con gvim) como en LINUX (vim y gvim)
-" Configuración ontenida de W0ng -> https://github.com/w0ng
+" ConfiguraciÃ³n ontenida de W0ng -> https://github.com/w0ng
 "
 " Vicente Gimeno Morales - E7 Version 2.9 - 09 oct 2016
 "======================================================================#
@@ -29,28 +29,28 @@ set encoding=utf-8		" always encode in utf
 
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-	" let Vundle manage Vundle, required
-	Plugin 'gmarik/Vundle.vim'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
-	"Put your non-Plugin stuff after this line
-	"Plugin 'Shougo/neocomplete'				" Automatic keyword completion
-	"Plugin 'Shougo/unite.vim'					" Find files and buffers using ag
-	"Plugin 'Shougo/vimfiler.vim'				" File Explorer :VimFiler
-	Plugin 'scrooloose/nerdtree'				" File Explorer
-	Plugin 'jlanzarotta/bufexplorer'			" Buffer Explorer :BufExplore
-	Plugin 'godlygeek/tabular'					" Text alignment
-	Plugin 'majutsushi/tagbar'					" Display tags in a window
-	"Plugin 'scrooloose/syntastic'				" Syntax checking on write
-	Plugin 'tpope/vim-fugitive'					" Git wrapper
-	Plugin 'tpope/vim-surround'					" Manipulate quotes and brackets
-	Plugin 'bling/vim-airline'					" Pretty statusbar
-	Plugin 'terryma/vim-multiple-cursors'		" Multiple cursors work
-	Plugin 'edkolev/promptline.vim'				" Prompt generator for bash
-	Plugin 'altercation/vim-colors-solarized.git'	" Solarized theme
-	Plugin 'joshdick/onedark.vim.git'			" OneDark theme
-	"Plugin 'nathanaelkane/vim-indent-guides.git'	" Show tab/space guides
+"Put your non-Plugin stuff after this line
+"Plugin 'Shougo/neocomplete'				" Automatic keyword completion
+"Plugin 'Shougo/unite.vim'					" Find files and buffers using ag
+"Plugin 'Shougo/vimfiler.vim'				" File Explorer :VimFiler
+Plugin 'scrooloose/nerdtree'				" File Explorer
+Plugin 'jlanzarotta/bufexplorer'			" Buffer Explorer :BufExplore
+Plugin 'godlygeek/tabular'					" Text alignment
+Plugin 'majutsushi/tagbar'					" Display tags in a window
+"Plugin 'scrooloose/syntastic'				" Syntax checking on write
+Plugin 'tpope/vim-fugitive'					" Git wrapper
+Plugin 'tpope/vim-surround'					" Manipulate quotes and brackets
+Plugin 'bling/vim-airline'					" Pretty statusbar
+Plugin 'terryma/vim-multiple-cursors'		" Multiple cursors work
+Plugin 'edkolev/promptline.vim'				" Prompt generator for bash
+Plugin 'altercation/vim-colors-solarized.git'	" Solarized theme
+Plugin 'joshdick/onedark.vim.git'			" OneDark theme
+"Plugin 'nathanaelkane/vim-indent-guides.git'	" Show tab/space guides
 
-	" All of your Plugins must be added before the following line
+" All of your Plugins must be added before the following line
 call vundle#end()
 
 if has("win32")
@@ -144,8 +144,8 @@ if has('gui_running')
 		"set guifont=DejaVu_Sans_Mono:h8
 		"set guifont=Source_Code_Pro:h9
 		"set guifont=Inconsolata:h10
-		set lines=60							" Nº lines
-		set columns=90							" Nº columns
+		set lines=60							" NÂº lines
+		set columns=90							" NÂº columns
 	else
 		set guifont=Inconsolata\ for\ Powerline\ 10
 	endif
@@ -225,7 +225,7 @@ nnoremap <M-p> :bp<CR>
 " Spell checking
 nnoremap <leader>s :set spell!<CR>
 " Show tabs
-nmap <leader>t :set list lcs=tab:+·<CR>
+nmap <leader>t :set list lcs=tab:+Â·<CR>
 nmap <leader>nt :set nolist<CR>
 " Prepare tabularize
 nmap <leader>ta :'<,'> Tabularize /
@@ -237,6 +237,8 @@ nnoremap <leader>vi :e $HOME/.vimrc<CR>
 nnoremap <leader>vr :source $HOME/.vimrc<CR>
 " Search and delete for trailing spaces and spaces before a tab
 nnoremap <leader>w :%s/\s\+$\\| \+\ze\t//gc<CR>
+" Indent file
+nnoremap <leader>i gg=G
 
 " Buffer deletion (buffkill plugin)
 nnoremap <leader>x :BD<CR>
@@ -256,9 +258,9 @@ nnoremap <C-R> :%s///gic
 inoremap <C-F> <C-X><C-F>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+			\ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <C-Space> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+			\ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " F Function keys
 " ---------------
@@ -305,7 +307,7 @@ let g:airline_inactive_collapse = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 if has("win32") || &term != "rxvt-unicode-256color"
 	let g:airline_powerline_fonts = 0
@@ -325,12 +327,12 @@ endif
 " Promptline
 " \'b': [ promptline#slices#host(), promptline#slices#user() ],
 let g:promptline_preset = {
-	\'a': [ promptline#slices#host({ 'only_if_ssh': 1 }) ],
-	\'b': [ promptline#slices#user() ],
-	\'c': [ promptline#slices#cwd() ],
-	\'x': [ promptline#slices#vcs_branch() ],
-	\'z': [ promptline#slices#git_status() ],
-	\'warn' : [ promptline#slices#last_exit_code() ]}
+			\'a': [ promptline#slices#host({ 'only_if_ssh': 1 }) ],
+			\'b': [ promptline#slices#user() ],
+			\'c': [ promptline#slices#cwd() ],
+			\'x': [ promptline#slices#vcs_branch() ],
+			\'z': [ promptline#slices#git_status() ],
+			\'warn' : [ promptline#slices#last_exit_code() ]}
 let g:promptline_theme = 'air_e7'
 
 " NERDTree
@@ -351,15 +353,15 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Indent rules, Linux Kernel Coding Style
 autocmd FileType c
-	\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-	\ list lcs=tab:+·
+			\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+			\ list lcs=tab:+Â·
 autocmd FileType cpp,java,javascript,json,markdown,php,python
-	\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-	\ list lcs=tab:+·
+			\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+			\ list lcs=tab:+Â·
 autocmd FileType markdown setlocal textwidth=80
 autocmd FileType prg
-	\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 cindent
-	\ list lcs=tab:+·
+			\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 cindent
+			\ list lcs=tab:+Â·
 
 " Txt
 autocmd FileType text setlocal textwidth=79 wrap
@@ -367,15 +369,15 @@ autocmd FileType text setlocal textwidth=79 wrap
 " Folding rules
 autocmd FileType c,cpp,java,prg setlocal foldmethod=syntax foldnestmax=5
 autocmd FileType css,html,htmldjango,xhtml
-	\ setlocal foldmethod=indent foldnestmax=20
+			\ setlocal foldmethod=indent foldnestmax=20
 
 " Set correct markdown extensions
 autocmd BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
-	\ if &ft =~# '^\%(conf\|modula2\)$' |
-	\	set ft=markdown |
-	\ else |
-	\	setf markdown |
-	\ endif
+			\ if &ft =~# '^\%(conf\|modula2\)$' |
+			\	set ft=markdown |
+			\ else |
+			\	setf markdown |
+			\ endif
 
 " Set filetype for prg
 autocmd BufNewFile,BufRead *.prg,*.dev,*.act,*.cas set ft=prg
@@ -418,21 +420,21 @@ function! ExecCompiler()
 	if &ft == "prg"
 		if filereadable(getcwd() . "/jarvis.prg")
 			if has("win32")
-			:!start "c:\work\soft\jarvis\kernel\release\jarvis_w32.exe" "%:p:h\jarvis.prg"
+				:!start "c:\work\soft\jarvis\kernel\release\jarvis_w32.exe" "%:p:h\jarvis.prg"
 			else
-			:!/root/jarvis\jarvis "%:p:h/jarvis.prg"
+				:!/root/jarvis\jarvis "%:p:h/jarvis.prg"
 			endif
 		elseif filereadable(getcwd() . "/siga.prg")
 			if has("win32")
-			:!start "c:\work\soft\jarvis\kernel\release\jarvis_w32.exe" "%:p:h\siga.prg"
+				:!start "c:\work\soft\jarvis\kernel\release\jarvis_w32.exe" "%:p:h\siga.prg"
 			else
-			:!/root/jarvis\jarvis "%:p:h/siga.prg"
+				:!/root/jarvis\jarvis "%:p:h/siga.prg"
 			endif
 		else
 			if has("win32")
-			:!start "c:\work\soft\jarvis\kernel\release\jarvis_w32.exe" "%:p"
+				:!start "c:\work\soft\jarvis\kernel\release\jarvis_w32.exe" "%:p"
 			else
-			:!/root/jarvis/jarvis "%:p"
+				:!/root/jarvis/jarvis "%:p"
 			endif
 		endif
 	endif
