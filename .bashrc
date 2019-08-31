@@ -58,7 +58,7 @@ function prompt_term
 
   # Prompt final
   if [ -n "$SSH_CONNECTION" ]; then
-    PS="$COLG┌[$COLB\h$COLG]─[$COLC\w$COLG]"
+    PS="$COLG┌[$COLA\h$COLG]─[$COLC\w$COLG]"
   else
     PS="$COLG┌[$COLC\w$COLG]"
   fi
