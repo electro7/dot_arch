@@ -64,7 +64,7 @@ client.background       $back
 # Gaps
 #..........
 
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 1
 gaps inner 6
 #smart_gaps on
 #smart_borders on
