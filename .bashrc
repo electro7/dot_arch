@@ -144,16 +144,8 @@ alias reboot="sudo /sbin/reboot"
 alias halt="sudo /sbin/poweroff"
 alias poweroff="sudo /sbin/poweroff"
 alias pacman="sudo pacman"
-
-# Alias para las X
-alias xvi="terminal vim"
-alias xslrn="terminal slrn"
-alias xmutt="terminal mutt"
-alias xnetstat="terminal netstat"
-alias xnetmasq="terminal netmasq"
-alias xiptraf="terminal iptraf"
-alias xbithcx="terminal bithcx"
-alias xt="terminal"
+alias paclean="sudo pacman -S --clean --clean"
+alias dpkg="sudo dpkg"
 
 # Alias del git
 alias gia="git add"
@@ -178,7 +170,10 @@ alias wifi_menu="wifi-menu"
 # App varias
 alias mldonkey="mldonkey -stdout -verbosity verb"
 alias netload="speedometer -r eth0 -t eth0"
-alias paclean="sudo pacman -S --clean --clean"
+alias vbox="export DISPLAY=:0.0; virtualbox &"
+alias vbox_start="VBoxManage startvm"
+alias vbox_ctrl="VBoxManage controlvm"
+alias vbox_list="VBoxManege list vms"
 
 #----------------------------------------------------------------------#
 # OTROS

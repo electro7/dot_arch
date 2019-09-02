@@ -309,19 +309,33 @@ iab _home ~/
 " -----------------------------------------------------------------------------
 "  vim-airline
 let g:airline_inactive_collapse = 0
+let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tagbar#enabled = 1
+call airline#parts#define_accent('mode', 'none')        " Quita fuentes en bold
+call airline#parts#define_accent('linenr', 'none')      " Quita fuentes en bold
+call airline#parts#define_accent('maxlinenr', 'none')   " Quita fuentes en bold
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 if has("win32") || &term != "rxvt-unicode-256color"
     let g:airline_powerline_fonts = 0
-    let g:airline_symbols = {}
+    let g:airline_powerline_ascii = 1
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
-    let g:airline_theme = 'air_e7'
+    let g:airline#extensions#tabline#left_sep = ''
+    let g:airline#extensions#tabline#left_alt_sep = ''
+    let g:airline#extensions#tabline#right_sep = ''
+    let g:airline#extensions#tabline#right_alt_sep = ''
+    let g:airline_symbols.maxlinenr = ''
+    let g:airline_symbols.linenr = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.whitespace = ''
+    let g:airline_theme = 'e7_s_hybrid'
 else
     let g:airline_powerline_fonts = 1
+    let g:airline_symbols.maxlinenr = ''
     let g:airline_symbols.linenr = ''
     let g:airline_symbols.whitespace = ''
     let g:airline_theme = 'air_e7'
