@@ -62,7 +62,7 @@ function prompt_term
   else
     PS="$COLG┌[$COLC\w$COLG]"
   fi
-  PSE="$COLG\n└ $COL\\$ $COLN"
+  PSE="\n$COL_G└ $COL\\$ $COLN"
   PROMPT_COMMAND='__git_ps1 "$XTITLE$PS" "$PSE" "─[$COLV"%s"$COLG]" '
 
   #PS1="$COLV--[$COLC\h$COLV]-[$COLA\w$COLV]$COLP\$(__git_ps1 ["%s"])\n$COL \\$ $COLN"
@@ -170,10 +170,11 @@ alias wifi_menu="wifi-menu"
 # App varias
 alias mldonkey="mldonkey -stdout -verbosity verb"
 alias netload="speedometer -r eth0 -t eth0"
+alias ko="export DISPLAY=0.0; kodi &"
 alias vbox="export DISPLAY=:0.0; virtualbox &"
 alias vbox_start="VBoxManage startvm"
 alias vbox_ctrl="VBoxManage controlvm"
-alias vbox_list="VBoxManege list vms"
+alias vbox_ls="VBoxManage list vms"
 
 #----------------------------------------------------------------------#
 # OTROS
