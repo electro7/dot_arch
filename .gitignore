@@ -60,6 +60,7 @@ music
 .private/*
 .ssh/*
 .themes/*
+.tmux/*
 .thumbnails/*
 .turses/log
 .turses/token
