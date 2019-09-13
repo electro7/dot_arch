@@ -14,26 +14,17 @@
 # Prompt
 #----------------------------------------------------------------------#
 
-# Colores a utilizar
-COLR="\[\033[0;31m\]" # Rojo
-COLV="\[\033[0;32m\]" # Verde
-COLA="\[\033[0;33m\]" # Amarillo
-COLB="\[\033[0;34m\]" # Blue
-COLP="\[\033[0;35m\]" # Purple
-COLC="\[\033[0;36m\]" # Cyan
-COLG="\[\033[0;37m\]" # Gray
-COLN="\[\033[0m\]"    # Reset
-COL="$COLC"           # Usuario normal
-
-[[ "$UID" = "0" ]] && COL=$COLR # Rojo para root
-
 # Título para las ventanas de consola en la X
-XTITLE='\[\e]0;\h : \s (\w)\a\]'
+TW_TITLE='\[\e]0;\h : \s (\w)\a\]'
 
 # Añade retorno de carro y el cambio del titulo de la ventana al P1 actual
 function __promptadd
 {
-  PS1="$XTITLE$PS1\n$COL \\$ $COLN"
+  local col_n="\[\033[0m\]"                     # Reset
+  local col_u="\[\033[1;36m\]"                  # User > cyan
+  [[ "$UID" = "0" ]] && col_u="\[\033[1;31m\]"  # Root > red
+
+  PS1="$TW_TITLE$PS1\n${col_u} \\$ ${coln}"
 }
 
 # Prompt a traves de promptline.vim
@@ -41,31 +32,15 @@ function __promptadd
 # Entrar en vim y hacer un :PromptlineSnapShot ~/.shell_prompt.sh
 function prompt_line
 {
-  source ~/bin/shell_prompt.sh
+  source ~/bin/prompt_powerline.sh
    PROMPT_COMMAND="$PROMPT_COMMAND; __promptadd;"
 }
 
 # Prompt "normal" sin carácteres raros
 function prompt_term
 {
-  # Opciones para el git
-  source /usr/share/git/completion/git-prompt.sh
-  GIT_PS1_SHOWDIRTYSTATE=1
-  GIT_PS1_SHOWSTASHSTATE=1
-  GIT_PS1_SHOWUNTRACKEDFILES=1
-  GIT_PS1_SHOWUPSTREAM="auto"
-  GIT_PS1_SHOWCOLORHINTS=1
-
-  # Prompt final
-  if [ -n "$SSH_CONNECTION" ]; then
-    PS="$COLG┌[$COLA\h$COLG]─[$COLC\w$COLG]"
-  else
-    PS="$COLG┌[$COLC\w$COLG]"
-  fi
-  PSE="\n$COL_G└ $COL\\$ $COLN"
-  PROMPT_COMMAND='__git_ps1 "$XTITLE$PS" "$PSE" "─[$COLV"%s"$COLG]" '
-
-  #PS1="$COLV--[$COLC\h$COLV]-[$COLA\w$COLV]$COLP\$(__git_ps1 ["%s"])\n$COL \\$ $COLN"
+  # Mi chequeo de git propio
+  source ~/bin/prompt_e7.sh
 }
 
 # Selección de prompt según el tipo de terminal
@@ -95,6 +70,7 @@ alias lsepub='ls -1 -R --indicator-style=none | grep epub'
 export GREP_COLOR="1;31"
 alias grep='grep --color=auto'
 export LESS="-R"
+export PAGER="most"
 
 #----------------------------------------------------------------------#
 # PATH
@@ -138,6 +114,7 @@ alias 'cd..'='cd ..'
 alias df="df -h"
 alias more='less'
 alias du='du -h'
+alias rs='rsync -ahvzi'
 
 # Alias para el su (root)
 alias reboot="sudo /sbin/reboot"
@@ -229,6 +206,9 @@ if [ $TERM = vt100 ]; then
   alias ls='ls -F --color=never';
 fi
 
+# Check umask
+if [[ $(umask) != "0022" ]]; then umask 0022; fi
+
 #----------------------------------------------------------------------#
 # Jarvis
 #----------------------------------------------------------------------#
@@ -256,8 +236,5 @@ check-ssh-agent || eval "$(ssh-agent -s -a /tmp/ssh-agent.sock_$USER)" > /dev/nu
 if [[ -n $(ssh-add -l | grep 'The agent has no identities') ]] ; then
   ssh-add 2> /dev/null
 fi
-
-
-
 
 # vim: ts=2:sw=2:
