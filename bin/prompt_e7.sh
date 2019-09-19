@@ -10,15 +10,15 @@
 
 
 # Colors
-c_gray=$(tput setaf 7);
-c_d_gray=$(tput setaf 8);
-c_red=$(tput setaf 9)
-c_green=$(tput setaf 10)
-c_yellow=$(tput setaf 11)
-c_blue=$(tput setaf 12)
-c_purple=$(tput setaf 13)
-c_cyan=$(tput setaf 14)
-c_none=$(tput sgr0)
+c_gray="\[\033[0;37m\]"
+c_d_gray="\[\033[1;30m\]"
+c_red="\[\033[1;31m\]"
+c_green="\[\033[1;32m\]"
+c_yellow="\[\033[1;33m\]"
+c_blue="\[\033[1;34m\]"
+c_purple="\[\033[1;35m\]"
+c_cyan="\[\033[1;36m\]"
+c_none="\[\033[0m\]"
 
 # Prompt init
 # ---------------------------------------------------------------------------
@@ -30,12 +30,24 @@ function __prompt_e7_init {
   else
     title="${TW_TITLE}"
   fi
+  # Truncate current dir
+  local pwdmaxlen=30
+  local trunc_symbol=".."
+  local dir=${PWD##*/}
+  pwdmaxlen=$(( ( pwdmaxlen < ${#dir} ) ? ${#dir} : pwdmaxlen ))
+  local new_pwd=${PWD/#$HOME/\~}
+  local pwdoffset=$(( ${#new_pwd} - pwdmaxlen ))
+  if [ ${pwdoffset} -gt "0" ]
+  then
+    new_pwd=${new_pwd:$pwdoffset:$pwdmaxlen}
+    new_pwd=${trunc_symbol}/${new_pwd#*/}
+  fi
   # Remote conection ?
   local prompt_init=""
   if [ -n "$SSH_CONNECTION" ]; then
-    prompt_init="$title${c_d_gray}┌[${c_yellow}\h${c_d_gray}]─[${c_gray}\w${c_d_gray}]"
+    prompt_init="$title${c_d_gray}┌[${c_yellow}\h${c_d_gray}]─[${c_gray}${new_pwd}${c_d_gray}]"
   else
-    prompt_init="$title${c_d_gray}┌[${c_gray}\w${c_d_gray}]"
+    prompt_init="$title${c_d_gray}┌[${c_gray}${new_pwd}${c_d_gray}]"
   fi
 
   printf "%s" "${prompt_init}"
@@ -144,11 +156,10 @@ function __prompt_e7_git_status {
 # ---------------------------------------------------------------------------
 function __prompt_e7 {
   PS1="$(__prompt_e7_init)$(__prompt_e7_git_status)$(__prompt_e7_end)"
-
 }
 
 if [[ ! "$PROMPT_COMMAND" == *__prompt_e7* ]]; then
-    PROMPT_COMMAND='__prompt_e7;'
+    PROMPT_COMMAND='__prompt_e7'
 fi
 
 #__prompt_e7
