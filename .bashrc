@@ -3,8 +3,8 @@
 # Fichero de opciones del shell bash
 #
 # Electro7
-# 31 ago. 2019
-# Versión para archlinux
+# 23 sep 2019
+# Versión común - WSL, debian y archlinux
 #======================================================================#
 
 # If not running interactively, don't do anything
@@ -33,7 +33,7 @@ function __promptadd
 function prompt_line
 {
   source ~/bin/prompt_powerline.sh
-   PROMPT_COMMAND="$PROMPT_COMMAND; __promptadd;"
+  PROMPT_COMMAND="$PROMPT_COMMAND; __promptadd;"
 }
 
 # Prompt "normal" sin carácteres raros
@@ -92,10 +92,12 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 # Alias
 #----------------------------------------------------------------------#
 
-#Alias WSL
-alias start="/mnt/c/Windows/System32/cmd.exe /c "start""
-alias s="start"
-alias gv="start gvim.exe"
+# Alias WSL
+if [[ -n $WSL ]]; then
+  alias start="/mnt/c/Windows/System32/cmd.exe /c "start""
+  alias s="start"
+  alias gv="start gvim.exe"
+fi
 
 # Alias contra borrados accidentales.
 alias rm='rm -i'
@@ -106,7 +108,6 @@ alias mv='mv -i'
 alias h='history'
 alias v='vim'
 alias vi='vim'
-alias gv='gvim'
 alias j="jobs -l"
 alias psl='ps -aux | less'
 alias ..='cd ..'
@@ -127,11 +128,14 @@ alias dpkg="sudo dpkg"
 # Alias del git
 alias gia="git add"
 alias gcm="git commit -a -m"
-alias gp="git push"
 alias gs="git status"
+alias gp="git push"
+alias gg="git pull"
+alias gd="git diff"
 
 # Mis chuletas
 alias chuleta="vim ~/.vim/doc/chuletario.txt"
+alias todo="vim ~/work/ToDo.txt"
 
 # Cambio colores de terminal
 alias col_dark="sh ~/.config/termcolours/dark.sh"
@@ -147,11 +151,27 @@ alias wifi_menu="wifi-menu"
 # App varias
 alias mldonkey="mldonkey -stdout -verbosity verb"
 alias netload="speedometer -r eth0 -t eth0"
-alias ko="export DISPLAY=0.0; kodi &"
+alias ko="export DISPLAY=:0.0; kodi &"
 alias vbox="export DISPLAY=:0.0; virtualbox &"
 alias vbox_start="VBoxManage startvm"
 alias vbox_ctrl="VBoxManage controlvm"
 alias vbox_ls="VBoxManage list vms"
+
+# SSH
+alias pi="ssh electro7@pi"
+alias pi_work="ssh electro7@pi"
+#alias pi_work="ssh tunelia@pi_work"
+alias nexus="ssh electro7@nexus"
+alias casiopea="ssh electro7@casiopea"
+
+#----------------------------------------------------------------------#
+# Funiones propias
+#----------------------------------------------------------------------#
+
+# Cambiar a directori obras
+cdc() {
+  cd $(find /mnt/d/work/obras -maxdepth 3 -type d -name *$1* | tail -n 1)
+}
 
 #----------------------------------------------------------------------#
 # OTROS
@@ -179,7 +199,6 @@ man() {
     man "$@"
 }
 
-# Extraer comprimidos
 extract () {
     if [ -f $1 ] ; then
       case $1 in
