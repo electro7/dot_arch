@@ -79,7 +79,7 @@ if test "$si" = "y" -o "$si" = "s"; then
             #vim -s "$HOME/bin/code_format.vim" ${F}
             echo -e "${C_G} OK${C_N}"
         else
-            uncrustify.exe -c %HOME/cnf/uncrustify.cnf --no-backup --replace ${F}
+            uncrustify.exe -c d:/work/home/cnf/uncrustify.cfg --no-backup --replace ${F}
         fi
     done
 else
