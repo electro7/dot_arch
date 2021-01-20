@@ -43,15 +43,15 @@ focus_follows_mouse no
 #set $green              #B5BD56
 
 # Reading colors from resources
-set_from_resource $back			i3wm.background #1D1F21
-set_from_resource $black		i3wm.color0		#282A2E
-set_from_resource $grey			i3wm.color8		#373B41
-set_from_resource $lightgrey	i3wm.color7		#707880
-set_from_resource $white		i3wm.color15	#C5C8C6
-set_from_resource $yellow		i3wm.color11	#F0C674
-set_from_resource $red			i3wm.color9		#CC6666
-set_from_resource $darkred		i3wm.color1		#A54242
-set_from_resource $green		i3wm.color10	#B5BD56
+set_from_resource $back         i3wm.background #1D1F21
+set_from_resource $black        i3wm.color0     #282A2E
+set_from_resource $grey         i3wm.color8     #373B41
+set_from_resource $lightgrey    i3wm.color7     #707880
+set_from_resource $white        i3wm.color15    #C5C8C6
+set_from_resource $yellow       i3wm.color11    #F0C674
+set_from_resource $red          i3wm.color9     #CC6666
+set_from_resource $darkred      i3wm.color1     #A54242
+set_from_resource $green        i3wm.color10    #B5BD56
 
 #class                  border      backgr.     text        split
 client.focused          $green     $green       $black      $red
@@ -135,10 +135,10 @@ for_window [class="(?i)gcolor2"] floating enable
 for_window [class="(?i)lxappearance"] floating enable
 for_window [class="(?i)qt5ct"] floating enable
 for_window [instance="(?i)TeamViewer.exe"] floating enable
-for_window [class="(?i)VirtualBox"] floating enable
+#for_window [class="(?i)VirtualBox"] floating enable
 for_window [class="(?i)mpv"] floating enable
 for_window [class="(?i)vlc"] floating enable
-for_window [class="(?i)VirtualBox Machine"] resize set 1024 768
+#for_window [class="(?i)VirtualBox Machine"] resize set 1024 768
 for_window [workspace=10] floating enable
 
 #...........

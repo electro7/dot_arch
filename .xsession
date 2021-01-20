@@ -13,7 +13,8 @@
 xset m 3
 
 # Sonido del pitido
-xset b 15 200 150
+#xset b 15 200 150
+xset b off
 
 # Protector de pantalla a 60 minutos
 xset s off
